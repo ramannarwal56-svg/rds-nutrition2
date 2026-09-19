@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Check, ShoppingBag, ShieldCheck, Zap, Award, Sparkles, MessageSquare } from 'lucide-react';
 import { Product, ProductVariant } from '../types';
 import { BRAND_INFO } from '../data/products';
+import { assetUrl } from '../utils/assetUrl';
 
 interface ProductQuickViewModalProps {
   product: Product | null;
@@ -107,9 +108,12 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
               />
 
               <img
-                src={product.primaryImage}
+                src={assetUrl(currentVariant?.image || product.primaryImage)}
                 alt={product.name}
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = assetUrl('/rnd-cre-amp.svg');
+                }}
                 className="max-h-72 w-auto object-contain my-4 drop-shadow-[0_20px_25px_rgba(0,0,0,0.9)]"
               />
 

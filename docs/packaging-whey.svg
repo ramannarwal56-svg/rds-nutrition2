@@ -1,87 +1,348 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" width="600" height="680">
   <defs>
-    <linearGradient id="p1Tub" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="30%" stop-color="#1e293b" />
-      <stop offset="70%" stop-color="#334155" />
-      <stop offset="100%" stop-color="#0f172a" />
-    </linearGradient>
-    <linearGradient id="p1Lid" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#090d16" />
-      <stop offset="40%" stop-color="#1e293b" />
-      <stop offset="60%" stop-color="#334155" />
-      <stop offset="100%" stop-color="#090d16" />
-    </linearGradient>
-    <linearGradient id="cyanStripe" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#10b981" />
-      <stop offset="50%" stop-color="#06b6d4" />
-      <stop offset="100%" stop-color="#3b82f6" />
-    </linearGradient>
-    <radialGradient id="halo" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+    <!-- Softly Blurred Studio Background Gradient -->
+    <radialGradient id="studioBlurredBg_wpc" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#374151" />
+      <stop offset="45%" stop-color="#1f2937" />
+      <stop offset="80%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#080c13" />
     </radialGradient>
-    <filter id="tubShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="25" stdDeviation="25" flood-color="#000000" flood-opacity="0.8"/>
+
+    <!-- Studio Floor Soft Contact & Ambient Shadows -->
+    <filter id="softContactShadow_wpc" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="14" />
+      <feOffset dx="0" dy="20" result="offsetblur" />
+      <feFlood flood-color="#000000" flood-opacity="0.65" />
+      <feComposite in2="offsetblur" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
     </filter>
+
+    <!-- Brushed Metal Platform Trim Gradient -->
+    <linearGradient id="brushedMetal_wpc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="15%" stop-color="#94a3b8" />
+      <stop offset="30%" stop-color="#cbd5e1" />
+      <stop offset="36%" stop-color="#f8fafc" />
+      <stop offset="44%" stop-color="#94a3b8" />
+      <stop offset="70%" stop-color="#64748b" />
+      <stop offset="88%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Grey Concrete Base Gradient -->
+    <linearGradient id="concreteBase_wpc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2b323c" />
+      <stop offset="25%" stop-color="#1e232a" />
+      <stop offset="100%" stop-color="#0f1216" />
+    </linearGradient>
+
+    <!-- Concrete Aggregate Noise Pattern -->
+    <pattern id="concreteNoise_wpc" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="none"/>
+      <circle cx="8" cy="12" r="0.7" fill="#ffffff" opacity="0.1" />
+      <circle cx="24" cy="35" r="0.9" fill="#ffffff" opacity="0.08" />
+      <circle cx="45" cy="18" r="0.6" fill="#ffffff" opacity="0.12" />
+      <circle cx="52" cy="48" r="0.8" fill="#000000" opacity="0.2" />
+      <circle cx="14" cy="50" r="1" fill="#000000" opacity="0.25" />
+      <circle cx="36" cy="8" r="0.6" fill="#ffffff" opacity="0.09" />
+    </pattern>
+
+    <!-- Slate Top Slab Gradient -->
+    <linearGradient id="slateTop_wpc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#181e26" />
+      <stop offset="30%" stop-color="#2d3748" />
+      <stop offset="60%" stop-color="#1a202c" />
+      <stop offset="100%" stop-color="#0d1117" />
+    </linearGradient>
+
+    <!-- Dark Wood Pedestal Gradient -->
+    <linearGradient id="woodBase_wpc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2d1b0e" />
+      <stop offset="50%" stop-color="#1c1007" />
+      <stop offset="100%" stop-color="#0c0603" />
+    </linearGradient>
+
+    <!-- Premium Matte Black Body Cylindrical Gradient -->
+    <linearGradient id="matteBlackBottle_wpc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#090b0e" />
+      <stop offset="8%" stop-color="#13161c" />
+      <stop offset="20%" stop-color="#222731" />
+      <stop offset="30%" stop-color="#384151" />
+      <stop offset="35%" stop-color="#556277" />
+      <stop offset="42%" stop-color="#2a313e" />
+      <stop offset="65%" stop-color="#161920" />
+      <stop offset="85%" stop-color="#0d0f14" />
+      <stop offset="100%" stop-color="#07080a" />
+    </linearGradient>
+
+    <!-- Dark Ribbed Screw Cap Gradient -->
+    <linearGradient id="darkRibbedCap_wpc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#050608" />
+      <stop offset="8%" stop-color="#101318" />
+      <stop offset="22%" stop-color="#1e232b" />
+      <stop offset="32%" stop-color="#313946" />
+      <stop offset="36%" stop-color="#424d5e" />
+      <stop offset="42%" stop-color="#222731" />
+      <stop offset="75%" stop-color="#0d0f14" />
+      <stop offset="100%" stop-color="#040506" />
+    </linearGradient>
+
+    <!-- Cap Top Bevel Ring Gradient -->
+    <linearGradient id="capTopBevel_wpc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2b3340" />
+      <stop offset="100%" stop-color="#0e1116" />
+    </linearGradient>
+
+    <!-- Ultra-Luxurious Metallic Gold Foil Gradient -->
+    <linearGradient id="goldFoil_wpc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="18%" stop-color="#fde68a" />
+      <stop offset="38%" stop-color="#fbbf24" />
+      <stop offset="60%" stop-color="#d97706" />
+      <stop offset="82%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+
+    <!-- Metallic Gold Typography Gradient -->
+    <linearGradient id="goldTypography_wpc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="30%" stop-color="#fef08a" />
+      <stop offset="60%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <!-- Embossed Gold Filter -->
+    <filter id="goldEmboss_wpc" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.55" />
+    </filter>
+
+    <!-- Cylindrical Bottle Body Clip -->
+    <clipPath id="bottleClip_wpc">
+      <path d="M 115 175 C 115 145, 140 135, 175 135 L 425 135 C 460 135, 485 145, 485 175 L 485 545 C 485 575, 460 590, 420 590 L 180 590 C 140 590, 115 575, 115 545 Z" />
+    </clipPath>
   </defs>
 
-  <!-- Ambient Glow -->
-  <circle cx="300" cy="320" r="240" fill="url(#halo)"/>
+  <!-- 1. Softly Blurred Studio Background -->
+  <rect width="600" height="680" rx="24" fill="url(#studioBlurredBg_wpc)" />
 
-  <!-- Shadow below container -->
-  <ellipse cx="300" cy="530" rx="190" ry="24" fill="#000000" fill-opacity="0.75" filter="blur(10px)"/>
+  <!-- Studio Depth Bokeh Lights -->
+  <circle cx="120" cy="140" r="80" fill="#60a5fa" opacity="0.04" filter="blur(40px)" />
+  <circle cx="480" cy="180" r="100" fill="#f59e0b" opacity="0.05" filter="blur(50px)" />
 
-  <g filter="url(#tubShadow)">
-    <!-- Lid Ribs / Grip -->
-    <rect x="200" y="100" width="200" height="50" rx="8" fill="url(#p1Lid)" stroke="#475569" stroke-width="1.5"/>
-    <line x1="210" y1="100" x2="210" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="230" y1="100" x2="230" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="250" y1="100" x2="250" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="270" y1="100" x2="270" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="290" y1="100" x2="290" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="310" y1="100" x2="310" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="330" y1="100" x2="330" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="350" y1="100" x2="350" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="370" y1="100" x2="370" y2="150" stroke="#64748b" stroke-width="2"/>
-    <line x1="390" y1="100" x2="390" y2="150" stroke="#64748b" stroke-width="2"/>
+  <!-- 2. Custom Textured Platform -->
+  
+    <!-- Grey Concrete and Brushed Metal Platform -->
+    <g>
+      <!-- Grey Concrete Pedestal -->
+      <path d="M 30 585 L 570 585 L 590 665 L 10 665 Z" fill="url(#concreteBase_wpc)" />
+      <path d="M 30 585 L 570 585 L 590 665 L 10 665 Z" fill="url(#concreteNoise_wpc)" />
 
-    <!-- Neck -->
-    <path d="M 185 150 L 415 150 L 440 190 L 160 190 Z" fill="url(#p1Lid)"/>
+      <!-- Brushed Metal Top Platform -->
+      <rect x="45" y="574" width="510" height="12" rx="2" fill="url(#brushedMetal_wpc)" />
+      <line x1="45" y1="574" x2="555" y2="574" stroke="#ffffff" stroke-width="1.2" opacity="0.7" />
+      <line x1="45" y1="586" x2="555" y2="586" stroke="#0f172a" stroke-width="1.5" />
 
-    <!-- Tub Body -->
-    <rect x="145" y="190" width="310" height="330" rx="24" fill="url(#p1Tub)" stroke="#334155" stroke-width="2"/>
+      <!-- Soft Floor Reflection on Brushed Metal -->
+      <ellipse cx="300" cy="578" rx="145" ry="6" fill="#ffffff" opacity="0.16" filter="blur(4px)" />
 
-    <!-- Metallic Specular reflection line -->
-    <rect x="220" y="190" width="35" height="330" fill="#ffffff" fill-opacity="0.08"/>
+      <!-- Contact Occlusion Shadow -->
+      <ellipse cx="300" cy="584" rx="165" ry="14" fill="#000000" fill-opacity="0.75" filter="blur(6px)"/>
+      <ellipse cx="300" cy="581" rx="135" ry="5" fill="#000000" fill-opacity="0.95" filter="blur(2px)"/>
+    </g>
 
-    <!-- Label Banner Background -->
-    <rect x="155" y="225" width="290" height="260" rx="14" fill="#090d16" stroke="#1e293b" stroke-width="1.5"/>
+  <!-- 3. Premium Matte Black Container Assembly -->
+  <g filter="url(#softContactShadow_wpc)">
 
-    <!-- Diagonal Accent -->
-    <path d="M 155 270 L 445 230 L 445 250 L 155 290 Z" fill="url(#cyanStripe)"/>
+    <!-- Container Body -->
+    <path d="M 115 175 C 115 145, 140 135, 175 135 L 425 135 C 460 135, 485 145, 485 175 L 485 545 C 485 575, 460 590, 420 590 L 180 590 C 140 590, 115 575, 115 545 Z" fill="url(#matteBlackBottle_wpc)" stroke="#1e293b" stroke-width="1.2"/>
 
-    <!-- RDS Logo -->
-    <text x="300" y="270" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" text-anchor="middle" letter-spacing="4">RDS</text>
-    <text x="300" y="295" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle" letter-spacing="2">NUTRITION</text>
+    <!-- Neck Collar -->
+    <path d="M 172 135 L 428 135 L 406 108 L 194 108 Z" fill="url(#darkRibbedCap_wpc)" stroke="#14171f" stroke-width="1"/>
 
-    <!-- Product Title -->
-    <text x="300" y="340" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="20" text-anchor="middle">WHEY PROTEIN</text>
-    <text x="300" y="365" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle" letter-spacing="1">CONCENTRATE / ISOLATE</text>
+    <!-- Dark Ribbed Screw Cap -->
+    <rect x="180" y="102" width="240" height="9" rx="3" fill="#0d0f14" stroke="#1f242e" stroke-width="1"/>
+    <rect x="184" y="46" width="232" height="60" rx="6" fill="url(#darkRibbedCap_wpc)" stroke="#2e3746" stroke-width="1.2"/>
 
-    <!-- Key Metrics Grid -->
-    <rect x="175" y="385" width="75" height="42" rx="8" fill="#1e293b"/>
-    <text x="212" y="405" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="13" text-anchor="middle">24G</text>
-    <text x="212" y="419" fill="#94a3b8" font-family="sans-serif" font-size="9" text-anchor="middle">PROTEIN</text>
+    <!-- Vertical Grooves on Cap -->
+    <g stroke-linecap="round">
+        <line x1="200" y1="52" x2="200" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="201.5" y1="52" x2="201.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="209" y1="52" x2="209" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="210.5" y1="52" x2="210.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="218" y1="52" x2="218" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="219.5" y1="52" x2="219.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="227" y1="52" x2="227" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="228.5" y1="52" x2="228.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="236" y1="52" x2="236" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="237.5" y1="52" x2="237.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="245" y1="52" x2="245" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="246.5" y1="52" x2="246.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="254" y1="52" x2="254" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="255.5" y1="52" x2="255.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="263" y1="52" x2="263" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="264.5" y1="52" x2="264.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="272" y1="52" x2="272" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="273.5" y1="52" x2="273.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="281" y1="52" x2="281" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="282.5" y1="52" x2="282.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="290" y1="52" x2="290" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="291.5" y1="52" x2="291.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="299" y1="52" x2="299" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="300.5" y1="52" x2="300.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="308" y1="52" x2="308" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="309.5" y1="52" x2="309.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="317" y1="52" x2="317" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="318.5" y1="52" x2="318.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="326" y1="52" x2="326" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="327.5" y1="52" x2="327.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="335" y1="52" x2="335" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="336.5" y1="52" x2="336.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="344" y1="52" x2="344" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="345.5" y1="52" x2="345.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="353" y1="52" x2="353" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="354.5" y1="52" x2="354.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="362" y1="52" x2="362" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="363.5" y1="52" x2="363.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="371" y1="52" x2="371" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="372.5" y1="52" x2="372.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="380" y1="52" x2="380" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="381.5" y1="52" x2="381.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="389" y1="52" x2="389" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="390.5" y1="52" x2="390.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="398" y1="52" x2="398" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="399.5" y1="52" x2="399.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+    </g>
 
-    <rect x="262" y="385" width="75" height="42" rx="8" fill="#1e293b"/>
-    <text x="300" y="405" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="13" text-anchor="middle">5.5G</text>
-    <text x="300" y="419" fill="#94a3b8" font-family="sans-serif" font-size="9" text-anchor="middle">BCAA</text>
+    <!-- Inset Bevel Ring on Cap Top -->
+    <ellipse cx="300" cy="47" rx="114" ry="7" fill="url(#capTopBevel_wpc)" stroke="#3b4554" stroke-width="1.5"/>
+    <ellipse cx="300" cy="46" rx="95" ry="4" fill="#0b0d11" stroke="#1f242e" stroke-width="1"/>
 
-    <rect x="350" y="385" width="75" height="42" rx="8" fill="#1e293b"/>
-    <text x="387" y="405" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="13" text-anchor="middle">ZERO</text>
-    <text x="387" y="419" fill="#94a3b8" font-family="sans-serif" font-size="9" text-anchor="middle">SUGAR</text>
+    <!-- Specular Studio Sheen Stripes -->
+    <path d="M 215 135 L 245 135 L 240 590 L 210 590 Z" fill="#ffffff" opacity="0.09" />
+    <path d="M 226 135 L 234 135 L 232 590 L 224 590 Z" fill="#ffffff" opacity="0.18" />
 
-    <text x="300" y="462" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="12" text-anchor="middle">NET WEIGHT: 1 KG (2.2 LBS)</text>
+    <!-- 4. Detailed Textured Label with Black & White Graphic Pattern -->
+    <g clip-path="url(#bottleClip_wpc)">
+      <!-- Right Section: Crisp Pure White with Hexagonal Honeycomb Pattern -->
+      <rect x="90" y="168" width="420" height="392" fill="#f8fafc" />
+
+      <!-- Faint Light-Grey Hexagonal Honeycomb Pattern -->
+      <g stroke="#cbd5e1" stroke-width="1.2" fill="none" opacity="0.8">
+        <polygon points="415,195 430,186 445,195 445,212 430,221 415,212" />
+        <polygon points="430,221 445,212 460,221 460,238 445,247 430,238" />
+        <polygon points="400,221 415,212 430,221 430,238 415,247 400,238" />
+        <polygon points="415,247 430,238 445,247 445,264 430,273 415,264" />
+        <polygon points="430,273 445,264 460,273 460,290 445,299 430,290" />
+        <polygon points="445,299 460,290 475,299 475,316 460,325 445,316" />
+        <polygon points="405,395 420,386 435,395 435,412 420,421 405,412" />
+        <polygon points="420,421 435,412 450,421 450,438 435,447 420,438" />
+        <polygon points="390,421 405,412 420,421 420,438 405,447 390,438" />
+        <polygon points="405,447 420,438 435,447 435,464 420,473 405,464" />
+        <polygon points="435,447 450,438 465,447 465,464 450,473 435,464" />
+      </g>
+
+      <!-- Left Section: Solid Deep Matte Black -->
+      <path d="M 90 168 L 350 168 L 406 342 L 348 560 L 90 560 Z" fill="#08090c" />
+
+      <!-- Metallic Gold Ribbon Dividing Black and White Panels -->
+      <path d="M 350 168 L 368 168 L 424 342 L 366 560 L 348 560 L 406 342 Z"
+            fill="url(#goldFoil_wpc)" filter="url(#goldEmboss_wpc)"/>
+
+      <!-- Far Left Gold Vertical Border -->
+      <rect x="115" y="168" width="14" height="392" fill="url(#goldFoil_wpc)" />
+
+      <!-- Brand Logo: RND NUTRITION Printed Near the Top -->
+      <g transform="translate(148, 194)">
+        <!-- Golden Shield with Runner Silhouette -->
+        <g filter="url(#goldEmboss_wpc)">
+          <polygon points="12,0 24,5 24,18 12,26 0,18 0,5" fill="none" stroke="url(#goldFoil_wpc)" stroke-width="2.2"/>
+          <circle cx="12" cy="7" r="2.2" fill="#ffffff"/>
+          <path d="M 10 10 L 14 10 L 16 16 L 12 18 L 8 16 Z" fill="url(#goldFoil_wpc)"/>
+          <path d="M 8 16 L 5 21 M 14 16 L 18 21" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+        </g>
+
+        <!-- Brand Wordmark RND -->
+        <text x="32" y="18" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="1.2">R</text>
+        <text x="49" y="18" fill="url(#goldTypography_wpc)" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="1.2">ND</text>
+        <text x="88" y="9" fill="url(#goldTypography_wpc)" font-family="sans-serif" font-weight="bold" font-size="8">®</text>
+        
+        <!-- NUTRITION Sub-text -->
+        <text x="32" y="29" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-weight="800" font-size="9" letter-spacing="2.8">NUTRITION</text>
+      </g>
+
+      <!-- Primary Product Name in Large Bold Metallic Gold Typography -->
+      <g transform="translate(148, 258)">
+        <text x="0" y="0" fill="url(#goldTypography_wpc)" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="30" letter-spacing="1.2" filter="url(#goldEmboss_wpc)">TITANIUM CORE WPC</text>
+
+        <!-- Clean White Product Description Below Name -->
+        <text x="0" y="32" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13.5" letter-spacing="0.6">PREMIUM WHEY CONCENTRATE</text>
+      </g>
+
+      <!-- Circular Metallic Gold Badge: Clinically Proven 50% Higher Absorption -->
+      <g transform="translate(358, 342)" filter="url(#goldEmboss_wpc)">
+        <!-- Outer Glowing Gold Ring with Toothed Edge -->
+        <circle cx="0" cy="0" r="42" fill="#0d0e12" stroke="url(#goldFoil_wpc)" stroke-width="3.2"/>
+        <circle cx="0" cy="0" r="37" fill="none" stroke="url(#goldFoil_wpc)" stroke-width="1.4" stroke-dasharray="2.5,2"/>
+        <circle cx="0" cy="0" r="34" fill="url(#goldFoil_wpc)"/>
+
+        <!-- Top Curved Arc Text: CLINICALLY PROVEN -->
+        <path id="sealArcTop_wpc" d="M -28 -5 A 28 28 0 0 1 28 -5" fill="none"/>
+        <text fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="5.8" letter-spacing="0.6">
+          <textPath href="#sealArcTop_wpc" startOffset="50%" text-anchor="middle">CLINICALLY PROVEN</textPath>
+        </text>
+
+        <!-- Big Bold Black: 50% -->
+        <text x="0" y="8" fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" text-anchor="middle" letter-spacing="-0.5">50%</text>
+
+        <!-- Lower Text: HIGHER -->
+        <text x="0" y="19" fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="7.5" text-anchor="middle" letter-spacing="0.5">HIGHER</text>
+
+        <!-- Bottom Curved Arc Text: ABSORPTION -->
+        <path id="sealArcBottom_wpc" d="M -27 12 A 28 28 0 0 0 27 12" fill="none"/>
+        <text fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="5.5" letter-spacing="0.8">
+          <textPath href="#sealArcBottom_wpc" startOffset="50%" text-anchor="middle">ABSORPTION</textPath>
+        </text>
+      </g>
+
+      
+      <!-- Detailed Logos and Text Specs Section -->
+      <g transform="translate(148, 385)">
+        <rect x="0" y="0" width="128" height="28" rx="14" fill="url(#goldFoil_wpc)" filter="url(#goldEmboss_wpc)"/>
+        <text x="64" y="18" fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="7" text-anchor="middle" letter-spacing="0.2">100% WHEY</text>
+
+        <rect x="134" y="0" width="94" height="28" rx="14" fill="#090a0f" stroke="url(#goldFoil_wpc)" stroke-width="1.5" filter="url(#goldEmboss_wpc)"/>
+        <text x="156" y="19" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="14">28g</text>
+        <text x="183" y="12" fill="url(#goldTypography_wpc)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="5.5" letter-spacing="0.4">PROTEIN</text>
+        <text x="183" y="21" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="5.5" letter-spacing="0.2">PER SERVE</text>
+      </g>
+
+      <!-- Net Weight Text Spec Near the Bottom -->
+      <g transform="translate(148, 442)">
+        <text x="0" y="14" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13" letter-spacing="0.5">Net Weight: 1 kg</text>
+      </g>
+
+      <!-- Veg Dot (Indian Green Vegetarian Hallmark Symbol) -->
+      <g transform="translate(385, 420)">
+        <rect x="0" y="0" width="22" height="22" rx="4" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+        <circle cx="11" cy="11" r="5" fill="#16a34a"/>
+      </g>
+
+      <!-- Metallic Edge Highlights -->
+      <line x1="90" y1="168" x2="510" y2="168" stroke="url(#goldFoil_wpc)" stroke-width="1.5" opacity="0.8"/>
+      <line x1="90" y1="560" x2="510" y2="560" stroke="url(#goldFoil_wpc)" stroke-width="1.5" opacity="0.8"/>
+
+      <!-- Specular Gloss Overlays -->
+      <path d="M 215 135 L 245 135 L 240 560 L 210 560 Z" fill="#ffffff" opacity="0.08" />
+      <path d="M 226 135 L 234 135 L 232 560 L 224 560 Z" fill="#ffffff" opacity="0.16" />
+    </g>
+
+    <!-- Outer Ambient Occlusion on Container Edges -->
+    <path d="M 115 175 C 115 145, 140 135, 175 135 L 140 135 C 120 145, 115 175, 115 175 L 115 545 C 115 575, 130 590, 150 590 L 130 590 C 115 575, 115 545, 115 545 Z"
+          fill="#000000" opacity="0.35" filter="blur(4px)"/>
+    <path d="M 485 175 C 485 145, 460 135, 425 135 L 460 135 C 480 145, 485 175, 485 175 L 485 545 C 485 575, 470 590, 450 590 L 470 590 C 485 575, 485 545, 485 545 Z"
+          fill="#000000" opacity="0.35" filter="blur(4px)"/>
   </g>
 </svg>

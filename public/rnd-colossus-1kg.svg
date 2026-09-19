@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680" width="600" height="680">
   <defs>
     <!-- Softly Blurred Studio Background Gradient -->
-    <radialGradient id="studioBlurredBg_mass_3kg" cx="50%" cy="35%" r="65%">
+    <radialGradient id="studioBlurredBg_mass_1kg" cx="50%" cy="35%" r="65%">
       <stop offset="0%" stop-color="#374151" />
       <stop offset="45%" stop-color="#1f2937" />
       <stop offset="80%" stop-color="#111827" />
@@ -9,7 +9,7 @@
     </radialGradient>
 
     <!-- Studio Floor Soft Contact & Ambient Shadows -->
-    <filter id="softContactShadow_mass_3kg" x="-30%" y="-30%" width="160%" height="160%">
+    <filter id="softContactShadow_mass_1kg" x="-30%" y="-30%" width="160%" height="160%">
       <feGaussianBlur in="SourceAlpha" stdDeviation="14" />
       <feOffset dx="0" dy="20" result="offsetblur" />
       <feFlood flood-color="#000000" flood-opacity="0.65" />
@@ -21,7 +21,7 @@
     </filter>
 
     <!-- Brushed Metal Platform Trim Gradient -->
-    <linearGradient id="brushedMetal_mass_3kg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="brushedMetal_mass_1kg" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#475569" />
       <stop offset="15%" stop-color="#94a3b8" />
       <stop offset="30%" stop-color="#cbd5e1" />
@@ -33,14 +33,14 @@
     </linearGradient>
 
     <!-- Grey Concrete Base Gradient -->
-    <linearGradient id="concreteBase_mass_3kg" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="concreteBase_mass_1kg" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#2b323c" />
       <stop offset="25%" stop-color="#1e232a" />
       <stop offset="100%" stop-color="#0f1216" />
     </linearGradient>
 
     <!-- Concrete Aggregate Noise Pattern -->
-    <pattern id="concreteNoise_mass_3kg" width="60" height="60" patternUnits="userSpaceOnUse">
+    <pattern id="concreteNoise_mass_1kg" width="60" height="60" patternUnits="userSpaceOnUse">
       <rect width="60" height="60" fill="none"/>
       <circle cx="8" cy="12" r="0.7" fill="#ffffff" opacity="0.1" />
       <circle cx="24" cy="35" r="0.9" fill="#ffffff" opacity="0.08" />
@@ -51,7 +51,7 @@
     </pattern>
 
     <!-- Slate Top Slab Gradient -->
-    <linearGradient id="slateTop_mass_3kg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="slateTop_mass_1kg" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#181e26" />
       <stop offset="30%" stop-color="#2d3748" />
       <stop offset="60%" stop-color="#1a202c" />
@@ -59,14 +59,14 @@
     </linearGradient>
 
     <!-- Dark Wood Pedestal Gradient -->
-    <linearGradient id="woodBase_mass_3kg" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="woodBase_mass_1kg" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#2d1b0e" />
       <stop offset="50%" stop-color="#1c1007" />
       <stop offset="100%" stop-color="#0c0603" />
     </linearGradient>
 
     <!-- Premium Matte Black Body Cylindrical Gradient -->
-    <linearGradient id="matteBlackBottle_mass_3kg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="matteBlackBottle_mass_1kg" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#090b0e" />
       <stop offset="8%" stop-color="#13161c" />
       <stop offset="20%" stop-color="#222731" />
@@ -79,7 +79,7 @@
     </linearGradient>
 
     <!-- Dark Ribbed Screw Cap Gradient -->
-    <linearGradient id="darkRibbedCap_mass_3kg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="darkRibbedCap_mass_1kg" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#050608" />
       <stop offset="8%" stop-color="#101318" />
       <stop offset="22%" stop-color="#1e232b" />
@@ -91,13 +91,13 @@
     </linearGradient>
 
     <!-- Cap Top Bevel Ring Gradient -->
-    <linearGradient id="capTopBevel_mass_3kg" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="capTopBevel_mass_1kg" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#2b3340" />
       <stop offset="100%" stop-color="#0e1116" />
     </linearGradient>
 
     <!-- Ultra-Luxurious Metallic Gold Foil Gradient -->
-    <linearGradient id="goldFoil_mass_3kg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="goldFoil_mass_1kg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#fffbeb" />
       <stop offset="18%" stop-color="#fde68a" />
       <stop offset="38%" stop-color="#fbbf24" />
@@ -107,7 +107,7 @@
     </linearGradient>
 
     <!-- Metallic Gold Typography Gradient -->
-    <linearGradient id="goldTypography_mass_3kg" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="goldTypography_mass_1kg" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#fbbf24" />
       <stop offset="30%" stop-color="#fef08a" />
       <stop offset="60%" stop-color="#f59e0b" />
@@ -115,18 +115,18 @@
     </linearGradient>
 
     <!-- Embossed Gold Filter -->
-    <filter id="goldEmboss_mass_3kg" x="-10%" y="-10%" width="120%" height="120%">
+    <filter id="goldEmboss_mass_1kg" x="-10%" y="-10%" width="120%" height="120%">
       <feDropShadow dx="0" dy="2.5" stdDeviation="2.5" flood-color="#000000" flood-opacity="0.55" />
     </filter>
 
     <!-- Cylindrical Bottle Body Clip -->
-    <clipPath id="bottleClip_mass_3kg">
-      <path d="M 95 200 C 95 155, 130 142, 180 142 L 420 142 C 470 142, 505 155, 505 200 L 505 540 C 505 572, 470 588, 420 588 L 180 588 C 130 588, 95 572, 95 540 Z" />
+    <clipPath id="bottleClip_mass_1kg">
+      <path d="M 115 175 C 115 145, 140 135, 175 135 L 425 135 C 460 135, 485 145, 485 175 L 485 545 C 485 575, 460 590, 420 590 L 180 590 C 140 590, 115 575, 115 545 Z" />
     </clipPath>
   </defs>
 
   <!-- 1. Softly Blurred Studio Background -->
-  <rect width="600" height="680" rx="24" fill="url(#studioBlurredBg_mass_3kg)" />
+  <rect width="600" height="680" rx="24" fill="url(#studioBlurredBg_mass_1kg)" />
 
   <!-- Studio Depth Bokeh Lights -->
   <circle cx="120" cy="140" r="80" fill="#60a5fa" opacity="0.04" filter="blur(40px)" />
@@ -137,11 +137,11 @@
     <!-- Grey Concrete and Brushed Metal Platform -->
     <g>
       <!-- Grey Concrete Pedestal -->
-      <path d="M 30 585 L 570 585 L 590 665 L 10 665 Z" fill="url(#concreteBase_mass_3kg)" />
-      <path d="M 30 585 L 570 585 L 590 665 L 10 665 Z" fill="url(#concreteNoise_mass_3kg)" />
+      <path d="M 30 585 L 570 585 L 590 665 L 10 665 Z" fill="url(#concreteBase_mass_1kg)" />
+      <path d="M 30 585 L 570 585 L 590 665 L 10 665 Z" fill="url(#concreteNoise_mass_1kg)" />
 
       <!-- Brushed Metal Top Platform -->
-      <rect x="45" y="574" width="510" height="12" rx="2" fill="url(#brushedMetal_mass_3kg)" />
+      <rect x="45" y="574" width="510" height="12" rx="2" fill="url(#brushedMetal_mass_1kg)" />
       <line x1="45" y1="574" x2="555" y2="574" stroke="#ffffff" stroke-width="1.2" opacity="0.7" />
       <line x1="45" y1="586" x2="555" y2="586" stroke="#0f172a" stroke-width="1.5" />
 
@@ -154,72 +154,70 @@
     </g>
 
   <!-- 3. Premium Matte Black Container Assembly -->
-  <g filter="url(#softContactShadow_mass_3kg)">
+  <g filter="url(#softContactShadow_mass_1kg)">
 
     <!-- Container Body -->
-    <path d="M 95 200 C 95 155, 130 142, 180 142 L 420 142 C 470 142, 505 155, 505 200 L 505 540 C 505 572, 470 588, 420 588 L 180 588 C 130 588, 95 572, 95 540 Z" fill="url(#matteBlackBottle_mass_3kg)" stroke="#1e293b" stroke-width="1.2"/>
+    <path d="M 115 175 C 115 145, 140 135, 175 135 L 425 135 C 460 135, 485 145, 485 175 L 485 545 C 485 575, 460 590, 420 590 L 180 590 C 140 590, 115 575, 115 545 Z" fill="url(#matteBlackBottle_mass_1kg)" stroke="#1e293b" stroke-width="1.2"/>
 
     <!-- Neck Collar -->
-    <path d="M 170 142 L 430 142 L 410 108 L 190 108 Z" fill="url(#darkRibbedCap_mass_3kg)" stroke="#14171f" stroke-width="1"/>
+    <path d="M 172 135 L 428 135 L 406 108 L 194 108 Z" fill="url(#darkRibbedCap_mass_1kg)" stroke="#14171f" stroke-width="1"/>
 
     <!-- Dark Ribbed Screw Cap -->
-    <rect x="173" y="100" width="254" height="10" rx="3" fill="#0d0f14" stroke="#1f242e" stroke-width="1"/>
-    <rect x="177" y="46" width="246" height="62" rx="6" fill="url(#darkRibbedCap_mass_3kg)" stroke="#2e3746" stroke-width="1.2"/>
+    <rect x="180" y="102" width="240" height="9" rx="3" fill="#0d0f14" stroke="#1f242e" stroke-width="1"/>
+    <rect x="184" y="46" width="232" height="60" rx="6" fill="url(#darkRibbedCap_mass_1kg)" stroke="#2e3746" stroke-width="1.2"/>
 
     <!-- Vertical Grooves on Cap -->
     <g stroke-linecap="round">
-        <line x1="194" y1="52" x2="194" y2="100" stroke="#060709" stroke-width="1.8"/>
-        <line x1="195.5" y1="52" x2="195.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="203" y1="52" x2="203" y2="100" stroke="#060709" stroke-width="1.8"/>
-        <line x1="204.5" y1="52" x2="204.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="212" y1="52" x2="212" y2="100" stroke="#060709" stroke-width="1.8"/>
-        <line x1="213.5" y1="52" x2="213.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="221" y1="52" x2="221" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="222.5" y1="52" x2="222.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="230" y1="52" x2="230" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="231.5" y1="52" x2="231.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="239" y1="52" x2="239" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="240.5" y1="52" x2="240.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="248" y1="52" x2="248" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="249.5" y1="52" x2="249.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="257" y1="52" x2="257" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="258.5" y1="52" x2="258.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="266" y1="52" x2="266" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="267.5" y1="52" x2="267.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="275" y1="52" x2="275" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="276.5" y1="52" x2="276.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="284" y1="52" x2="284" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="285.5" y1="52" x2="285.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="293" y1="52" x2="293" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="294.5" y1="52" x2="294.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="302" y1="52" x2="302" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="303.5" y1="52" x2="303.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="311" y1="52" x2="311" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="312.5" y1="52" x2="312.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="320" y1="52" x2="320" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="321.5" y1="52" x2="321.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="329" y1="52" x2="329" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="330.5" y1="52" x2="330.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="338" y1="52" x2="338" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="339.5" y1="52" x2="339.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="347" y1="52" x2="347" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="348.5" y1="52" x2="348.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="356" y1="52" x2="356" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="357.5" y1="52" x2="357.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="365" y1="52" x2="365" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="366.5" y1="52" x2="366.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="374" y1="52" x2="374" y2="100" stroke="#060709" stroke-width="2.4"/>
-        <line x1="375.5" y1="52" x2="375.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="383" y1="52" x2="383" y2="100" stroke="#060709" stroke-width="1.8"/>
-        <line x1="384.5" y1="52" x2="384.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="392" y1="52" x2="392" y2="100" stroke="#060709" stroke-width="1.8"/>
-        <line x1="393.5" y1="52" x2="393.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
-        <line x1="401" y1="52" x2="401" y2="100" stroke="#060709" stroke-width="1.8"/>
-        <line x1="402.5" y1="52" x2="402.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="200" y1="52" x2="200" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="201.5" y1="52" x2="201.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="209" y1="52" x2="209" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="210.5" y1="52" x2="210.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="218" y1="52" x2="218" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="219.5" y1="52" x2="219.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="227" y1="52" x2="227" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="228.5" y1="52" x2="228.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="236" y1="52" x2="236" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="237.5" y1="52" x2="237.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="245" y1="52" x2="245" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="246.5" y1="52" x2="246.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="254" y1="52" x2="254" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="255.5" y1="52" x2="255.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="263" y1="52" x2="263" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="264.5" y1="52" x2="264.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="272" y1="52" x2="272" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="273.5" y1="52" x2="273.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="281" y1="52" x2="281" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="282.5" y1="52" x2="282.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="290" y1="52" x2="290" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="291.5" y1="52" x2="291.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="299" y1="52" x2="299" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="300.5" y1="52" x2="300.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="308" y1="52" x2="308" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="309.5" y1="52" x2="309.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="317" y1="52" x2="317" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="318.5" y1="52" x2="318.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="326" y1="52" x2="326" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="327.5" y1="52" x2="327.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="335" y1="52" x2="335" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="336.5" y1="52" x2="336.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="344" y1="52" x2="344" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="345.5" y1="52" x2="345.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="353" y1="52" x2="353" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="354.5" y1="52" x2="354.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="362" y1="52" x2="362" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="363.5" y1="52" x2="363.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="371" y1="52" x2="371" y2="100" stroke="#060709" stroke-width="2.4"/>
+        <line x1="372.5" y1="52" x2="372.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="380" y1="52" x2="380" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="381.5" y1="52" x2="381.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="389" y1="52" x2="389" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="390.5" y1="52" x2="390.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
+        <line x1="398" y1="52" x2="398" y2="100" stroke="#060709" stroke-width="1.8"/>
+        <line x1="399.5" y1="52" x2="399.5" y2="100" stroke="#384252" stroke-width="1.0" opacity="0.75"/>
     </g>
 
     <!-- Inset Bevel Ring on Cap Top -->
-    <ellipse cx="300" cy="47" rx="114" ry="7" fill="url(#capTopBevel_mass_3kg)" stroke="#3b4554" stroke-width="1.5"/>
+    <ellipse cx="300" cy="47" rx="114" ry="7" fill="url(#capTopBevel_mass_1kg)" stroke="#3b4554" stroke-width="1.5"/>
     <ellipse cx="300" cy="46" rx="95" ry="4" fill="#0b0d11" stroke="#1f242e" stroke-width="1"/>
 
     <!-- Specular Studio Sheen Stripes -->
@@ -227,9 +225,9 @@
     <path d="M 226 135 L 234 135 L 232 590 L 224 590 Z" fill="#ffffff" opacity="0.18" />
 
     <!-- 4. Detailed Textured Label with Black & White Graphic Pattern -->
-    <g clip-path="url(#bottleClip_mass_3kg)">
+    <g clip-path="url(#bottleClip_mass_1kg)">
       <!-- Right Section: Crisp Pure White with Hexagonal Honeycomb Pattern -->
-      <rect x="90" y="175" width="420" height="383" fill="#f8fafc" />
+      <rect x="90" y="168" width="420" height="392" fill="#f8fafc" />
 
       <!-- Faint Light-Grey Hexagonal Honeycomb Pattern -->
       <g stroke="#cbd5e1" stroke-width="1.2" fill="none" opacity="0.8">
@@ -247,53 +245,53 @@
       </g>
 
       <!-- Left Section: Solid Deep Matte Black -->
-      <path d="M 90 175 L 370 175 L 425 342 L 360 558 L 90 558 Z" fill="#08090c" />
+      <path d="M 90 168 L 350 168 L 406 342 L 348 560 L 90 560 Z" fill="#08090c" />
 
       <!-- Metallic Gold Ribbon Dividing Black and White Panels -->
-      <path d="M 370 175 L 388 175 L 443 342 L 378 558 L 360 558 L 425 342 Z"
-            fill="url(#goldFoil_mass_3kg)" filter="url(#goldEmboss_mass_3kg)"/>
+      <path d="M 350 168 L 368 168 L 424 342 L 366 560 L 348 560 L 406 342 Z"
+            fill="url(#goldFoil_mass_1kg)" filter="url(#goldEmboss_mass_1kg)"/>
 
       <!-- Far Left Gold Vertical Border -->
-      <rect x="115" y="175" width="14" height="383" fill="url(#goldFoil_mass_3kg)" />
+      <rect x="115" y="168" width="14" height="392" fill="url(#goldFoil_mass_1kg)" />
 
       <!-- Brand Logo: RND NUTRITION Printed Near the Top -->
-      <g transform="translate(138, 194)">
+      <g transform="translate(148, 194)">
         <!-- Golden Shield with Runner Silhouette -->
-        <g filter="url(#goldEmboss_mass_3kg)">
-          <polygon points="12,0 24,5 24,18 12,26 0,18 0,5" fill="none" stroke="url(#goldFoil_mass_3kg)" stroke-width="2.2"/>
+        <g filter="url(#goldEmboss_mass_1kg)">
+          <polygon points="12,0 24,5 24,18 12,26 0,18 0,5" fill="none" stroke="url(#goldFoil_mass_1kg)" stroke-width="2.2"/>
           <circle cx="12" cy="7" r="2.2" fill="#ffffff"/>
-          <path d="M 10 10 L 14 10 L 16 16 L 12 18 L 8 16 Z" fill="url(#goldFoil_mass_3kg)"/>
+          <path d="M 10 10 L 14 10 L 16 16 L 12 18 L 8 16 Z" fill="url(#goldFoil_mass_1kg)"/>
           <path d="M 8 16 L 5 21 M 14 16 L 18 21" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
         </g>
 
         <!-- Brand Wordmark RND -->
         <text x="32" y="18" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="1.2">R</text>
-        <text x="49" y="18" fill="url(#goldTypography_mass_3kg)" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="1.2">ND</text>
-        <text x="88" y="9" fill="url(#goldTypography_mass_3kg)" font-family="sans-serif" font-weight="bold" font-size="8">®</text>
+        <text x="49" y="18" fill="url(#goldTypography_mass_1kg)" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="1.2">ND</text>
+        <text x="88" y="9" fill="url(#goldTypography_mass_1kg)" font-family="sans-serif" font-weight="bold" font-size="8">®</text>
         
         <!-- NUTRITION Sub-text -->
         <text x="32" y="29" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-weight="800" font-size="9" letter-spacing="2.8">NUTRITION</text>
       </g>
 
       <!-- Primary Product Name in Large Bold Metallic Gold Typography -->
-      <g transform="translate(138, 258)">
-        <text x="0" y="0" fill="url(#goldTypography_mass_3kg)" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="28" letter-spacing="1.2" filter="url(#goldEmboss_mass_3kg)">TITANIUM MASS GAINER</text>
+      <g transform="translate(148, 258)">
+        <text x="0" y="0" fill="url(#goldTypography_mass_1kg)" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="30" letter-spacing="1.2" filter="url(#goldEmboss_mass_1kg)">TITANIUM MASS GAINER</text>
 
         <!-- Clean White Product Description Below Name -->
         <text x="0" y="32" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13.5" letter-spacing="0.6">ADVANCED MASS BUILDING FORMULA</text>
       </g>
 
       <!-- Circular Metallic Gold Badge: Clinically Proven 50% Higher Absorption -->
-      <g transform="translate(380, 342)" filter="url(#goldEmboss_mass_3kg)">
+      <g transform="translate(358, 342)" filter="url(#goldEmboss_mass_1kg)">
         <!-- Outer Glowing Gold Ring with Toothed Edge -->
-        <circle cx="0" cy="0" r="42" fill="#0d0e12" stroke="url(#goldFoil_mass_3kg)" stroke-width="3.2"/>
-        <circle cx="0" cy="0" r="37" fill="none" stroke="url(#goldFoil_mass_3kg)" stroke-width="1.4" stroke-dasharray="2.5,2"/>
-        <circle cx="0" cy="0" r="34" fill="url(#goldFoil_mass_3kg)"/>
+        <circle cx="0" cy="0" r="42" fill="#0d0e12" stroke="url(#goldFoil_mass_1kg)" stroke-width="3.2"/>
+        <circle cx="0" cy="0" r="37" fill="none" stroke="url(#goldFoil_mass_1kg)" stroke-width="1.4" stroke-dasharray="2.5,2"/>
+        <circle cx="0" cy="0" r="34" fill="url(#goldFoil_mass_1kg)"/>
 
         <!-- Top Curved Arc Text: CLINICALLY PROVEN -->
-        <path id="sealArcTop_mass_3kg" d="M -28 -5 A 28 28 0 0 1 28 -5" fill="none"/>
+        <path id="sealArcTop_mass_1kg" d="M -28 -5 A 28 28 0 0 1 28 -5" fill="none"/>
         <text fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="5.8" letter-spacing="0.6">
-          <textPath href="#sealArcTop_mass_3kg" startOffset="50%" text-anchor="middle">CLINICALLY PROVEN</textPath>
+          <textPath href="#sealArcTop_mass_1kg" startOffset="50%" text-anchor="middle">CLINICALLY PROVEN</textPath>
         </text>
 
         <!-- Big Bold Black: 50% -->
@@ -303,22 +301,22 @@
         <text x="0" y="19" fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="7.5" text-anchor="middle" letter-spacing="0.5">HIGHER</text>
 
         <!-- Bottom Curved Arc Text: ABSORPTION -->
-        <path id="sealArcBottom_mass_3kg" d="M -27 12 A 28 28 0 0 0 27 12" fill="none"/>
+        <path id="sealArcBottom_mass_1kg" d="M -27 12 A 28 28 0 0 0 27 12" fill="none"/>
         <text fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="5.5" letter-spacing="0.8">
-          <textPath href="#sealArcBottom_mass_3kg" startOffset="50%" text-anchor="middle">ABSORPTION</textPath>
+          <textPath href="#sealArcBottom_mass_1kg" startOffset="50%" text-anchor="middle">ABSORPTION</textPath>
         </text>
       </g>
 
       
       <!-- Detailed Specs Badge -->
-      <g transform="translate(138, 385)">
-        <rect x="0" y="0" width="170" height="28" rx="14" fill="url(#goldFoil_mass_3kg)" filter="url(#goldEmboss_mass_3kg)"/>
-        <text x="85" y="18" fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="8" text-anchor="middle" letter-spacing="0.5">MEGA 3KG JUG FORMULA</text>
+      <g transform="translate(148, 385)">
+        <rect x="0" y="0" width="170" height="28" rx="14" fill="url(#goldFoil_mass_1kg)" filter="url(#goldEmboss_mass_1kg)"/>
+        <text x="85" y="18" fill="#090a0f" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="8" text-anchor="middle" letter-spacing="0.5">CLINICAL GRADE FORMULA</text>
       </g>
 
       <!-- Net Weight Text Spec Near the Bottom -->
-      <g transform="translate(138, 442)">
-        <text x="0" y="14" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13" letter-spacing="0.5">Net Weight: 3 kg</text>
+      <g transform="translate(148, 442)">
+        <text x="0" y="14" fill="#ffffff" font-family="ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13" letter-spacing="0.5">Net Weight: 1 kg</text>
       </g>
 
       <!-- Veg Dot (Indian Green Vegetarian Hallmark Symbol) -->
@@ -328,12 +326,12 @@
       </g>
 
       <!-- Metallic Edge Highlights -->
-      <line x1="90" y1="175" x2="510" y2="175" stroke="url(#goldFoil_mass_3kg)" stroke-width="1.5" opacity="0.8"/>
-      <line x1="90" y1="558" x2="510" y2="558" stroke="url(#goldFoil_mass_3kg)" stroke-width="1.5" opacity="0.8"/>
+      <line x1="90" y1="168" x2="510" y2="168" stroke="url(#goldFoil_mass_1kg)" stroke-width="1.5" opacity="0.8"/>
+      <line x1="90" y1="560" x2="510" y2="560" stroke="url(#goldFoil_mass_1kg)" stroke-width="1.5" opacity="0.8"/>
 
       <!-- Specular Gloss Overlays -->
-      <path d="M 215 135 L 245 135 L 240 558 L 210 558 Z" fill="#ffffff" opacity="0.08" />
-      <path d="M 226 135 L 234 135 L 232 558 L 224 558 Z" fill="#ffffff" opacity="0.16" />
+      <path d="M 215 135 L 245 135 L 240 560 L 210 560 Z" fill="#ffffff" opacity="0.08" />
+      <path d="M 226 135 L 234 135 L 232 560 L 224 560 Z" fill="#ffffff" opacity="0.16" />
     </g>
 
     <!-- Outer Ambient Occlusion on Container Edges -->

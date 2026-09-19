@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Search, MessageSquare, Menu, X, Sparkles } from 'lucide-react';
+import { ShoppingBag, Search, MessageSquare, Menu, X } from 'lucide-react';
 import { BRAND_INFO } from '../data/products';
 
 interface NavbarProps {

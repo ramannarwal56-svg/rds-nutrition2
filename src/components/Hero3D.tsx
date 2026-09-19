@@ -10,8 +10,56 @@ interface Hero3DProps {
 }
 
 export const Hero3D: React.FC<Hero3DProps> = ({ onExploreClick, onSelectProduct }) => {
-  // 4 Flagship showcase items from the user's uploaded packaging images
+  // Flagship showcase items including the Titanium Series from the user's reference packaging
   const flagshipItems = [
+    {
+      id: 'titanium-iso',
+      tag: '50% HIGHER ABSORPTION',
+      title: 'TITANIUM ISO ZERO™ 100% Whey Isolate',
+      subtitle: 'Pure Cross-Flow Microfiltered Isolate 1 kg (2.2 lb)',
+      image: '/rnd-whey-isolate.svg',
+      dose: '28g Protein Per Serve • 0g Lactose • cGMP',
+      price: '₹3,000',
+      mrp: '₹4,499',
+      productId: 'rnd-iso-pure-whey-isolate',
+      color: '#f59e0b'
+    },
+    {
+      id: 'titanium-wpc',
+      tag: '50% HIGHER ABSORPTION',
+      title: 'TITANIUM CORE WPC™ Whey Concentrate',
+      subtitle: 'Premium Bioavailable Whey Concentrate 1 kg (2.2 lb)',
+      image: '/rnd-whey-concentrate.svg',
+      dose: '28g Protein Per Serve • Rich Milkshake Flavor',
+      price: '₹1,900',
+      mrp: '₹2,899',
+      productId: 'rnd-pro-core-whey-concentrate',
+      color: '#d97706'
+    },
+    {
+      id: 'titanium-blend',
+      tag: '50% HIGHER ABSORPTION',
+      title: 'TITANIUM DUAL BLEND™ Isolate + WPC',
+      subtitle: 'Dual-Stage Sustained Absorption Matrix 1 kg (2.2 lb)',
+      image: '/rnd-whey-blend.svg',
+      dose: '28g Protein Per Serve • Dual-Stage Digestion',
+      price: '₹3,400',
+      mrp: '₹4,999',
+      productId: 'rnd-fusion-blend-whey',
+      color: '#eab308'
+    },
+    {
+      id: 'titanium-yeast',
+      tag: 'BIO-FERMENTED CLEAN',
+      title: 'TITANIUM YEAST POWER™ Yeast Protein',
+      subtitle: 'Hypoallergenic Dairy-Free Yeast Protein 1 kg (2.2 lb)',
+      image: '/rnd-yeast-protein.svg',
+      dose: '28g Protein Per Serve • 100% Non-Dairy • Zero Bloat',
+      price: '₹1,500',
+      mrp: '₹2,499',
+      productId: 'rnd-bio-yeast-protein',
+      color: '#ca8a04'
+    },
     {
       id: 'cre-amp',
       tag: 'TRUSTIFIED CERTIFIED',
@@ -35,30 +83,6 @@ export const Hero3D: React.FC<Hero3DProps> = ({ onExploreClick, onSelectProduct 
       mrp: '₹2,999',
       productId: 'rnd-ignition-x-pre-workout',
       color: '#f59e0b'
-    },
-    {
-      id: 'colossus',
-      tag: 'ANABOLIC 1:5 RATIO',
-      title: 'COLOSSUS™ Mega Mass Gainer',
-      subtitle: 'High Calorie Bulking Formula 3 kg (6.6 lbs)',
-      image: '/rnd-colossus.svg',
-      dose: '54g Protein • 1050 kcal • Biozyme Enriched',
-      price: '₹1,200',
-      mrp: '₹2,299',
-      productId: 'rnd-colossus-mass-gainer',
-      color: '#f97316'
-    },
-    {
-      id: 'alpha-shield',
-      tag: '100% DAILY RDA',
-      title: 'ALPHA SHIELD™ Multivitamin',
-      subtitle: 'Athlete Daily Formula 60 Veg Tablets',
-      image: '/rnd-alpha-shield.svg',
-      dose: '45 Active Ingredients • KSM-66® Ashwagandha',
-      price: '₹599',
-      mrp: '₹999',
-      productId: 'rnd-alpha-shield-multivitamin',
-      color: '#eab308'
     }
   ];
 

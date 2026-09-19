@@ -5,6 +5,7 @@ export interface ProductVariant {
   mrp?: number; // original list price for discount calculation
   servings?: string; // e.g. "38 Servings", "30 Servings", "60 Tablets"
   flavors: string[]; // e.g. ["Fruit Punch", "Chocolate", "Vanilla", "Unflavoured"]
+  image?: string; // variant specific image shot
 }
 
 export interface Product {

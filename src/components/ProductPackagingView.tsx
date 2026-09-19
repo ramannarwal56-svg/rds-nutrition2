@@ -22,8 +22,8 @@ export const ProductPackagingView: React.FC<ProductPackagingViewProps> = ({
 }) => {
   const [hasError, setHasError] = useState(false);
 
-  // Fallback path check: e.g. /Screenshot 2026-09-13 080857.jpg or /assets/...
-  const rawSrc = hasError ? '/packaging-whey.svg' : imageSrc;
+  // Fallback path check: e.g. /rnd-cre-amp.svg
+  const rawSrc = hasError ? '/rnd-cre-amp.svg' : imageSrc;
   const currentSrc = assetUrl(rawSrc);
 
   return (

@@ -3,45 +3,47 @@ import { Product } from '../types';
 export const PRODUCTS: Product[] = [
   {
     id: 'rnd-cre-amp-creatine',
-    name: 'CRE AMP Micronised Creatine Monohydrate',
-    brandLine: 'RND CRE AMP™',
+    name: 'TITANIUM CREATINE Micronized Monohydrate',
+    brandLine: 'RND TITANIUM™ CREATINE',
     category: 'performance',
-    shortDescription: 'Ultra-micronised 200 mesh pure creatine monohydrate for explosive power, strength, and cellular ATP regeneration.',
-    fullDescription: 'RND CRE AMP is the gold standard in strength supplementation. Featuring 100% pure micronised creatine monohydrate milled to 200 mesh for instantaneous dissolution and optimal bioavailability. Verified Trustified Certified for zero heavy metals, zero fillers, and guaranteed 3g active creatine per scoop.',
+    shortDescription: 'Titanium Series ultra-micronized 200 mesh pure creatine monohydrate with clinically proven 50% higher absorption.',
+    fullDescription: 'RND TITANIUM CREATINE is the gold standard in strength and power supplementation. Featuring 100% pure micronised creatine monohydrate milled to 200 mesh for instantaneous dissolution, rapid cellular ATP replenishment, and clinically proven 50% higher absorption.',
     primaryImage: '/rnd-cre-amp.svg',
-    alternateImages: ['/Screenshot 2026-09-13 080857.jpg'],
+    alternateImages: ['/rnd-lineup-showcase.svg'],
     variants: [
-      {
-        id: 'cre-250g',
-        size: '250 g',
-        price: 899,
-        mrp: 1499,
-        servings: '83 Servings',
-        flavors: ['Unflavoured']
-      },
       {
         id: 'cre-100g',
         size: '100 g',
         price: 400,
         mrp: 699,
         servings: '33 Servings',
-        flavors: ['Unflavoured']
+        flavors: ['Unflavoured'],
+        image: '/rnd-cre-amp.svg'
+      },
+      {
+        id: 'cre-250g',
+        size: '250 g',
+        price: 899,
+        mrp: 1499,
+        servings: '83 Servings',
+        flavors: ['Unflavoured'],
+        image: '/rnd-cre-amp.svg'
       }
     ],
     defaultVariantIndex: 0,
-    highlightBadge: 'Trustified Certified',
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
     clinicalHighlights: [
       '3g Pure Micronised Creatine',
-      'Trustified Certified & Tested',
-      '200 Mesh Ultra-Fine Mixability',
-      'Zero Sugars • Zero Carbs'
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified',
+      '200 Mesh Ultra-Fine Mixability'
     ],
-    certifiedBadges: ['Trustified Certified', '200 Mesh Micronized', '100% Lab Tested', 'Dope Free'],
+    certifiedBadges: ['Clinically Proven 50% Higher Absorption', 'Veg Dot', '200 Mesh Micronized', 'Trustified Certified'],
     benefits: [
       'Increases muscle ATP energy replenishment for explosive sets',
-      'Enhances cellular intramuscular hydration & muscle fullness',
+      'Clinically proven 50% higher digestive absorption curve',
       'Dissolves clear in water, juice, or whey shake with zero grit',
-      'Third-party tested & Trustified certified for 100% purity'
+      'Third-party tested & certified for 100% purity and doping-free formula'
     ],
     nutritionFacts: {
       servingSize: '3g (1 Scoop)',
@@ -56,45 +58,47 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'rnd-ignition-x-pre-workout',
-    name: 'IGNITION X Extreme Pre-Workout',
-    brandLine: 'RND IGNITION X™',
+    name: 'TITANIUM PRE-WORKOUT Extreme Energy Formula',
+    brandLine: 'RND TITANIUM™ PRE-WORKOUT',
     category: 'performance',
-    shortDescription: '100% clinical dose extreme pre-workout with 6000mg Citrulline Malate, 3200mg Beta-Alanine, and 300mg Caffeine.',
-    fullDescription: 'Uncompromising formulation engineered for aggressive gym sessions. RND IGNITION X provides clinical dosages of pump catalysts and neuro-stimulants. Delivers 6000mg L-Citrulline Malate for nitric oxide vasodilation, 3200mg Beta-Alanine to delay lactic acid build-up, and 300mg Caffeine Anhydrous for razor-sharp mental focus without the crash.',
+    shortDescription: 'Titanium Series extreme energy pre-workout formula with clinically proven 50% higher absorption.',
+    fullDescription: 'Uncompromising formulation engineered for aggressive gym sessions. RND TITANIUM PRE-WORKOUT delivers clinical dosages of pump catalysts, neuro-stimulants, and nitric oxide precursors with clinically proven 50% higher absorption.',
     primaryImage: '/rnd-ignition-x.svg',
-    alternateImages: ['/Screenshot 2026-09-13 080910.jpg'],
+    alternateImages: ['/rnd-lineup-showcase.svg'],
     variants: [
+      {
+        id: 'ign-100g',
+        size: '100 g',
+        price: 300,
+        mrp: 599,
+        servings: '12 Servings',
+        flavors: ['Fruit Punch', 'Electric Berry', 'Tangy Orange', 'Green Apple'],
+        image: '/rnd-ignition-x.svg'
+      },
       {
         id: 'ign-300g',
         size: '300 g',
         price: 1499,
         mrp: 2999,
         servings: '38 Servings',
-        flavors: ['Fruit Punch', 'Electric Berry', 'Tangy Orange', 'Green Apple']
-      },
-      {
-        id: 'ign-100g',
-        size: '100 g (Trial)',
-        price: 300,
-        mrp: 599,
-        servings: '12 Servings',
-        flavors: ['Fruit Punch', 'Electric Berry', 'Tangy Orange', 'Green Apple']
+        flavors: ['Fruit Punch', 'Electric Berry', 'Tangy Orange', 'Green Apple'],
+        image: '/rnd-ignition-x.svg'
       }
     ],
     defaultVariantIndex: 0,
-    highlightBadge: '100% Clinical Dose',
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
     clinicalHighlights: [
-      '6000mg Citrulline Malate (Pump & Blood Flow)',
-      '3200mg Beta-Alanine (Endurance & Strength)',
-      '300mg Caffeine (Focus & Energy)',
-      '38 Explosive Servings'
+      'Extreme Energy Formula',
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified',
+      '6000mg Citrulline Malate Pump Matrix'
     ],
-    certifiedBadges: ['100% Clinical Dose', 'No Proprietary Blends', 'FSSAI Approved', 'Product of India'],
+    certifiedBadges: ['Clinically Proven 50% Higher Absorption', 'Veg Dot', '100% Clinical Dose', 'FSSAI Approved'],
     benefits: [
       'Massive muscle pumps via high-dose 6000mg Citrulline Malate',
-      'Prolongs muscular endurance and buffers lactic acid with Beta-Alanine',
-      'Instant neuro-drive and focus with 300mg caffeine matrix',
-      'Refreshing natural Fruit Punch flavor with fast solubility'
+      'Clinically proven 50% higher absorption for rapid uptake',
+      'Instant neuro-drive and focus with caffeine anhydrous matrix',
+      'Refreshing natural flavors with lightning-fast solubility'
     ],
     nutritionFacts: {
       servingSize: '7.8g (1 Scoop)',
@@ -108,44 +112,46 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'rnd-colossus-mass-gainer',
-    name: 'COLOSSUS Mega Mass Gainer',
-    brandLine: 'RND COLOSSUS™',
+    name: 'TITANIUM MASS GAINER Advanced Mass Building Formula',
+    brandLine: 'RND TITANIUM™ MASS GAINER',
     category: 'gainers',
-    shortDescription: 'High-calorie anabolic formula with 1:5 ratio, 54g high quality protein, 1050 calories, 3g creatine, and biozymes.',
-    fullDescription: 'Built for hardgainers and massive bulking phases. RND COLOSSUS delivers a precision 1:5 anabolic ratio of multi-source proteins to clean complex carbohydrates. Enriched with 3g micronised creatine, medium-chain triglycerides (MCTs), and Biozyme digestive technology to ensure rapid caloric assimilation without gastrointestinal bloat.',
+    shortDescription: 'Titanium Series advanced mass building formula with clinically proven 50% higher absorption and anabolic ratio.',
+    fullDescription: 'Engineered for aggressive bulking and hardgainers. RND TITANIUM MASS GAINER provides high-protein anabolic nutrition enriched with micronised creatine, digestive enzymes, and clinically proven 50% higher absorption.',
     primaryImage: '/rnd-colossus.svg',
-    alternateImages: ['/Screenshot 2026-09-13 080857.jpg'],
+    alternateImages: ['/rnd-colossus-1kg.svg', '/rnd-lineup-showcase.svg'],
     variants: [
       {
-        id: 'col-3kg',
-        size: '3 kg (6.6 lbs)',
-        price: 1200,
-        mrp: 2299,
-        servings: '30 Servings',
-        flavors: ['Chocolate', 'Vanilla', 'Kesar Pista']
-      },
-      {
         id: 'col-1kg',
-        size: '1 kg (2.2 lbs)',
+        size: '1 kg',
         price: 600,
         mrp: 999,
         servings: '10 Servings',
-        flavors: ['Chocolate', 'Vanilla', 'Kesar Pista']
+        flavors: ['Chocolate', 'Vanilla', 'Kesar Pista'],
+        image: '/rnd-colossus-1kg.svg'
+      },
+      {
+        id: 'col-3kg',
+        size: '3 kg',
+        price: 1200,
+        mrp: 2299,
+        servings: '30 Servings',
+        flavors: ['Chocolate', 'Vanilla', 'Kesar Pista'],
+        image: '/rnd-colossus.svg'
       }
     ],
     defaultVariantIndex: 0,
-    highlightBadge: 'Anabolic 1:5 Ratio',
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
     clinicalHighlights: [
-      '54g High Quality Protein per serving',
-      '1050 Clean Anabolic Calories',
-      '3g Micronized Creatine included',
+      'Advanced Mass Building Formula',
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified',
       'Enriched with Biozyme Technology'
     ],
-    certifiedBadges: ['1:5 Anabolic Ratio', 'Biozyme Enriched', 'Zero Trans Fats', 'Lab Tested'],
+    certifiedBadges: ['Clinically Proven 50% Higher Absorption', 'Veg Dot', 'Advanced Mass Formula', 'Biozyme Enriched'],
     benefits: [
       'Accelerates muscular hypertrophy for hardgainers',
-      'Multi-stage carbohydrate delivery prevents insulin spikes & crash',
-      'Biozyme digestive enzymes ensure maximum absorption',
+      'Clinically proven 50% higher digestive absorption curve',
+      'Biozyme digestive enzymes ensure maximum assimilation without bloat',
       'Packed with essential aminos, glutamine, and creatine'
     ],
     nutritionFacts: {
@@ -166,7 +172,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Clinically formulated 100% RDA multivitamin with 45 active ingredients, KSM-66® Ashwagandha, and testosterone support.',
     fullDescription: 'Engineered specifically for athletes under heavy physical stress. RND ALPHA SHIELD provides full spectrum 100% RDA micronutrients plus specialized botanical complexes including patented KSM-66® Ashwagandha for cortisol control, zinc-magnesium testosterone support matrix, and digestive bio-enhancers.',
     primaryImage: '/rnd-alpha-shield.svg',
-    alternateImages: ['/Screenshot 2026-09-13 080910.jpg'],
+    alternateImages: ['/rnd-lineup-showcase.svg'],
     variants: [
       {
         id: 'alp-60tabs',
@@ -205,193 +211,197 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'rnd-iso-pure-whey-isolate',
-    name: 'ISO-PURE 100% Whey Protein Isolate',
-    brandLine: 'RND ISO-PURE™',
+    name: 'TITANIUM PURE ISO 100% Whey Isolate',
+    brandLine: 'RND TITANIUM™ PURE ISO',
     category: 'protein',
-    shortDescription: 'Ultra-pure 90% cross-flow cold microfiltered whey isolate with 27g protein, 0g sugar, and zero lactose.',
-    fullDescription: 'The crown jewel of protein purification. RND ISO-PURE undergoes low-temperature cross-flow ceramic microfiltration, isolating native whey fractions while completely stripping away lactose, fat, and cholesterol. Delivers 27g of pure, ultra-rapid digesting protein per scoop for instant post-workout anabolism.',
+    shortDescription: 'Titanium Series 100% pure whey isolate delivering 28g protein per serve with clinically proven 50% higher absorption.',
+    fullDescription: 'The crown jewel of protein purification. RND TITANIUM PURE ISO undergoes low-temperature cross-flow ceramic microfiltration, isolating native whey fractions while completely stripping away lactose, fat, and sugar. Delivers 28g of pure, ultra-rapid digesting protein per scoop with clinically proven 50% higher absorption.',
     primaryImage: '/rnd-whey-isolate.svg',
-    alternateImages: ['/rnd-cre-amp.svg'],
+    alternateImages: ['/rnd-lineup-showcase.svg'],
     variants: [
       {
         id: 'wpi-1kg',
-        size: '1 kg (2.2 lbs)',
+        size: '1 kg',
         price: 3000,
         mrp: 4499,
         servings: '33 Servings',
-        flavors: ['Chocolate', 'Vanilla', 'Unflavoured']
+        flavors: ['Chocolate', 'Vanilla', 'Unflavoured'],
+        image: '/rnd-whey-isolate.svg'
       }
     ],
     defaultVariantIndex: 0,
-    highlightBadge: '90% Pure Isolate',
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
     clinicalHighlights: [
-      '27g Pure Protein per scoop',
-      '6.2g Natural BCAAs',
-      'Zero Lactose • Zero Sugar',
-      'Cross-Flow Microfiltered'
+      '28g Protein Per Serve',
+      '100% whey',
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified'
     ],
-    certifiedBadges: ['90% Protein Purity', 'Zero Lactose', 'Cold Microfiltered', '100% Dope Free'],
+    certifiedBadges: ['28g Protein Per Serve', '100% whey', 'Clinically Proven 50% Higher Absorption', 'Veg Dot'],
     benefits: [
-      'Instantaneous digestive uptake fuels immediate protein synthesis',
-      'Virtually zero fat and carbohydrates — ideal for lean cutting phases',
-      'Gentle on stomach for lactose-sensitive athletes',
-      'Unsurpassed chocolate and vanilla gourmet flavor profiles'
-    ],
-    nutritionFacts: {
-      servingSize: '30g (1 Scoop)',
-      protein: '27g',
-      bcaa: '6.2g',
-      calories: '115 kcal',
-      carbs: '0.5g',
-      fats: '0.3g',
-      clinicalDose: '27g Pure Whey Isolate'
-    },
-    accentColor: '#06b6d4'
-  },
-  {
-    id: 'rnd-pro-core-whey-concentrate',
-    name: 'PRO-CORE Whey Protein Concentrate',
-    brandLine: 'RND PRO-CORE™',
-    category: 'protein',
-    shortDescription: 'Ultra-filtered premium 80% whey protein concentrate delivering 24g bioavailable protein and 5.5g BCAAs.',
-    fullDescription: 'Engineered for athletes demanding consistent muscular recovery and exceptional taste. RND PRO-CORE is sourced from hormone-free dairy and processed at low temperatures to retain immunoglobulins, lactoferrin, and intact amino acid chains. Fortified with digestive enzymes for smooth digestion.',
-    primaryImage: '/rnd-whey-concentrate.svg',
-    alternateImages: ['/rnd-whey-isolate.svg'],
-    variants: [
-      {
-        id: 'wpc-1kg',
-        size: '1 kg (2.2 lbs)',
-        price: 1900,
-        mrp: 2899,
-        servings: '31 Servings',
-        flavors: ['Chocolate', 'Vanilla', 'Unflavoured']
-      }
-    ],
-    defaultVariantIndex: 0,
-    highlightBadge: 'Best Seller',
-    clinicalHighlights: [
-      '24g Bioavailable Protein',
-      '5.5g Naturally Occurring BCAAs',
-      'Enhanced with DigeZyme Enzymes',
-      'Instantized Mixability'
-    ],
-    certifiedBadges: ['80% WPC Standard', 'DigeZyme Enriched', 'Grass-Fed Sourced', 'Zero Amino Spiking'],
-    benefits: [
-      'Provides sustained 3-4 hour amino acid release curve',
-      'Enriched with multi-enzyme complex for zero bloating',
-      'Decadent milkshake consistency and authentic flavor notes',
-      'Cost-effective everyday foundation for strength training'
+      '28g high-potency protein per serving for maximum anabolism',
+      'Clinically proven 50% higher digestive absorption curve',
+      'Virtually zero fat, carbs, or lactose — perfect for lean cutting',
+      'World-sourced quality with rigorous cGMP verification'
     ],
     nutritionFacts: {
       servingSize: '32g (1 Scoop)',
-      protein: '24g',
-      bcaa: '5.5g',
-      calories: '130 kcal',
-      carbs: '2.5g',
-      fats: '1.8g',
-      clinicalDose: '24g Whey Protein Concentrate'
+      protein: '28g',
+      bcaa: '6.5g',
+      calories: '118 kcal',
+      carbs: '0.4g',
+      fats: '0.2g',
+      clinicalDose: '28g 100% Whey Isolate (50% Higher Absorption)'
     },
-    accentColor: '#10b981'
+    accentColor: '#eab308'
   },
   {
-    id: 'rnd-fusion-blend-whey',
-    name: 'FUSION-BLEND Whey (Isolate + Concentrate)',
-    brandLine: 'RND FUSION-BLEND™',
+    id: 'rnd-pro-core-whey-concentrate',
+    name: 'TITANIUM CORE WPC Premium Whey Concentrate',
+    brandLine: 'RND TITANIUM™ CORE WPC',
     category: 'protein',
-    shortDescription: 'Dual-phase release protein combining rapid Whey Isolate with sustained Whey Concentrate for 25.5g protein.',
-    fullDescription: 'The ultimate all-day anabolic matrix. RND FUSION-BLEND marries the rapid plasma amino spike of cold-filtered Whey Isolate with the sustained amino acid delivery of Whey Concentrate. Guarantees prolonged muscle protein synthesis after strenuous lifting sessions.',
-    primaryImage: '/rnd-whey-blend.svg',
-    alternateImages: ['/rnd-whey-concentrate.svg'],
+    shortDescription: 'Titanium Series premium whey concentrate delivering 28g bioavailable protein per serve with 50% higher absorption.',
+    fullDescription: 'Engineered for athletes demanding consistent muscular recovery and exceptional taste. RND TITANIUM CORE WPC is sourced from hormone-free dairy and processed at low temperatures to retain native immunoglobulins. Delivers 28g protein per scoop with clinically proven 50% higher absorption.',
+    primaryImage: '/rnd-whey-concentrate.svg',
+    alternateImages: ['/rnd-lineup-showcase.svg'],
     variants: [
       {
-        id: 'blend-1kg',
-        size: '1 kg (2.2 lbs)',
-        price: 3400,
-        mrp: 4999,
-        servings: '30 Servings',
-        flavors: ['Chocolate', 'Vanilla', 'Unflavoured']
+        id: 'wpc-1kg',
+        size: '1 kg',
+        price: 1900,
+        mrp: 2899,
+        servings: '31 Servings',
+        flavors: ['Chocolate', 'Vanilla', 'Unflavoured'],
+        image: '/rnd-whey-concentrate.svg'
       }
     ],
     defaultVariantIndex: 0,
-    highlightBadge: 'Dual-Phase Formula',
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
     clinicalHighlights: [
-      '25.5g Dual-Stage Protein',
-      '5.8g BCAAs per scoop',
-      'Isolate + Concentrate Ratio',
-      'Ultra-Creamy Texture'
+      '28g Protein Per Serve',
+      '100% whey',
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified'
     ],
-    certifiedBadges: ['Dual-Phase Matrix', 'Microfiltered Isolate Core', 'Zero Banned Substances'],
+    certifiedBadges: ['28g Protein Per Serve', '100% whey', 'Clinically Proven 50% Higher Absorption', 'Veg Dot'],
+    benefits: [
+      '28g protein per serving ensures sustained amino acid delivery',
+      'Clinically proven 50% higher absorption prevents gastrointestinal bloat',
+      'Rich milkshake consistency and authentic flavor notes',
+      'cGMP verified production standard for unmatched purity'
+    ],
+    nutritionFacts: {
+      servingSize: '35g (1 Scoop)',
+      protein: '28g',
+      bcaa: '6.0g',
+      calories: '135 kcal',
+      carbs: '2.2g',
+      fats: '1.5g',
+      clinicalDose: '28g Premium Whey Concentrate (50% Higher Absorption)'
+    },
+    accentColor: '#eab308'
+  },
+  {
+    id: 'rnd-fusion-blend-whey',
+    name: 'TITANIUM DUAL BLEND Whey (Isolate + Concentrate)',
+    brandLine: 'RND TITANIUM™ DUAL BLEND',
+    category: 'protein',
+    shortDescription: 'Titanium Series dual-stage whey isolate + concentrate blend with 28g protein per serve and 50% higher absorption.',
+    fullDescription: 'The ultimate all-day anabolic matrix. RND TITANIUM DUAL BLEND marries the rapid plasma amino spike of cold-filtered Whey Isolate with the sustained amino release of Whey Concentrate. Delivers 28g complete protein per serve backed by 50% higher absorption technology.',
+    primaryImage: '/rnd-whey-blend.svg',
+    alternateImages: ['/rnd-lineup-showcase.svg'],
+    variants: [
+      {
+        id: 'blend-1kg',
+        size: '1 kg',
+        price: 3400,
+        mrp: 4999,
+        servings: '30 Servings',
+        flavors: ['Chocolate', 'Vanilla', 'Unflavoured'],
+        image: '/rnd-whey-blend.svg'
+      }
+    ],
+    defaultVariantIndex: 0,
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
+    clinicalHighlights: [
+      '28g Protein Per Serve',
+      '100% whey',
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified'
+    ],
+    certifiedBadges: ['28g Protein Per Serve', '100% whey', 'Clinically Proven 50% Higher Absorption', 'Veg Dot'],
     benefits: [
       'Dual-rate digestion keeps amino acid levels elevated for hours',
-      'Perfect for post-workout recovery or between-meal nourishment',
+      'Clinically proven 50% higher absorption for rapid muscle repair',
       'Rich gourmet taste with superior mouthfeel and texture',
       'Zero chalkiness and instant lump-free solubility'
     ],
     nutritionFacts: {
-      servingSize: '33g (1 Scoop)',
-      protein: '25.5g',
-      bcaa: '5.8g',
-      calories: '128 kcal',
-      carbs: '2.0g',
-      fats: '1.4g',
-      clinicalDose: '25.5g Isolate/Concentrate Blend'
+      servingSize: '34g (1 Scoop)',
+      protein: '28g',
+      bcaa: '6.2g',
+      calories: '130 kcal',
+      carbs: '1.8g',
+      fats: '1.2g',
+      clinicalDose: '28g Whey Isolate + Concentrate (50% Higher Absorption)'
     },
-    accentColor: '#8b5cf6'
+    accentColor: '#eab308'
   },
   {
     id: 'rnd-bio-yeast-protein',
-    name: 'BIO-YEAST Fermented Protein',
-    brandLine: 'RND BIO-YEAST™',
+    name: 'TITANIUM YEAST POWER Premium Clean Yeast Protein',
+    brandLine: 'RND TITANIUM™ YEAST POWER',
     category: 'protein',
-    shortDescription: '100% vegan, hypoallergenic single-cell fermented protein with complete amino profile and PDCAAS 1.0.',
-    fullDescription: 'The next frontier of clean sports nutrition. RND BIO-YEAST is produced through natural bio-fermentation, delivering a hypoallergenic, dairy-free, soy-free protein matrix with an exceptional PDCAAS score of 1.0. Rich in natural B-vitamins, minerals, and prebiotic dietary fiber.',
+    shortDescription: 'Titanium Series 100% clean fermented yeast protein with 28g protein per serve and clinically proven 50% higher absorption.',
+    fullDescription: 'The next frontier of clean sports nutrition. RND TITANIUM YEAST POWER is produced through natural bio-fermentation, delivering a hypoallergenic, dairy-free, soy-free protein matrix with 28g protein per serve and clinically proven 50% higher absorption.',
     primaryImage: '/rnd-yeast-protein.svg',
-    alternateImages: ['/rnd-whey-concentrate.svg'],
+    alternateImages: ['/rnd-lineup-showcase.svg'],
     variants: [
       {
         id: 'yeast-1kg',
-        size: '1 kg (2.2 lbs)',
+        size: '1 kg',
         price: 1500,
         mrp: 2499,
         servings: '33 Servings',
-        flavors: ['Unflavoured', 'Cafe Mocha']
+        flavors: ['Unflavoured', 'Cafe Mocha'],
+        image: '/rnd-yeast-protein.svg'
       }
     ],
     defaultVariantIndex: 0,
-    highlightBadge: '100% Bio-Fermented Vegan',
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
     clinicalHighlights: [
-      '24g Fermented Clean Protein',
-      'PDCAAS 1.0 Complete Amino Profile',
-      '100% Dairy-Free & Hypoallergenic',
-      'Natural B-Complex Vitamins'
+      '28g Protein Per Serve',
+      '100% clean protein',
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified'
     ],
-    certifiedBadges: ['100% Vegan Certified', 'PDCAAS 1.0 Score', 'Eco Sustainable', 'Non-GMO'],
+    certifiedBadges: ['28g Protein Per Serve', '100% clean protein', 'Clinically Proven 50% Higher Absorption', 'Veg Dot'],
     benefits: [
-      'Non-dairy and gentle for individuals sensitive to whey or soy',
-      'High leucine content triggers optimal muscle protein synthesis',
-      'Environmentally sustainable production with ultra-low carbon footprint',
-      'Naturally rich in zinc, magnesium, and essential trace minerals'
+      '28g bio-fermented complete protein per scoop',
+      'Clinically proven 50% higher absorption with zero lactose or bloating',
+      'Hypoallergenic non-dairy nutrition ideal for all body types',
+      'World-sourced quality certified by cGMP standards'
     ],
     nutritionFacts: {
-      servingSize: '30g (1 Scoop)',
-      protein: '24g',
-      bcaa: '4.8g',
-      calories: '118 kcal',
-      carbs: '1.8g',
-      fats: '1.2g',
-      clinicalDose: '24g Fermented Yeast Protein'
+      servingSize: '33g (1 Scoop)',
+      protein: '28g',
+      bcaa: '5.6g',
+      calories: '124 kcal',
+      carbs: '1.5g',
+      fats: '1.0g',
+      clinicalDose: '28g Fermented Yeast Protein (50% Higher Absorption)'
     },
-    accentColor: '#ca8a04'
+    accentColor: '#eab308'
   },
   {
     id: 'rnd-recharge-bcaa',
-    name: 'RECHARGE BCAA 2:1:1 Matrix',
-    brandLine: 'RND RECHARGE™',
+    name: 'TITANIUM BCAA Essential Amino Acids',
+    brandLine: 'RND TITANIUM™ BCAA',
     category: 'recovery',
-    shortDescription: 'Clinically proven 2:1:1 ratio of Leucine, Isoleucine, and Valine with hydration electrolytes to stop catabolism.',
-    fullDescription: 'Fuel your intra-workout intensity and protect hard-earned muscle. RND RECHARGE provides instantized plant-fermented branched chain amino acids in the researched 2:1:1 ratio. Enhanced with pink Himalayan salt, potassium, and magnesium to maintain cellular hydration and prevent cramping.',
+    shortDescription: 'Titanium Series essential amino acids 2:1:1 ratio with clinically proven 50% higher absorption.',
+    fullDescription: 'Fuel your intra-workout intensity and protect hard-earned muscle. RND TITANIUM BCAA provides instantized plant-fermented branched chain amino acids in the researched 2:1:1 ratio with clinically proven 50% higher absorption.',
     primaryImage: '/rnd-bcaa.svg',
-    alternateImages: ['/rnd-ignition-x.svg'],
+    alternateImages: ['/rnd-lineup-showcase.svg'],
     variants: [
       {
         id: 'bcaa-100g',
@@ -399,7 +409,8 @@ export const PRODUCTS: Product[] = [
         price: 500,
         mrp: 899,
         servings: '14 Servings',
-        flavors: ['Watermelon Chill', 'Blue Raspberry', 'Lemon Lime']
+        flavors: ['Watermelon Chill', 'Blue Raspberry', 'Lemon Lime'],
+        image: '/rnd-bcaa.svg'
       },
       {
         id: 'bcaa-250g',
@@ -407,23 +418,24 @@ export const PRODUCTS: Product[] = [
         price: 999,
         mrp: 1699,
         servings: '35 Servings',
-        flavors: ['Watermelon Chill', 'Blue Raspberry', 'Lemon Lime']
+        flavors: ['Watermelon Chill', 'Blue Raspberry', 'Lemon Lime'],
+        image: '/rnd-bcaa.svg'
       }
     ],
     defaultVariantIndex: 0,
-    highlightBadge: '2:1:1 Intra-Fuel',
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
     clinicalHighlights: [
-      '7g Instantized BCAAs (2:1:1 Ratio)',
-      'Prevents Intra-Workout Muscle Catabolism',
-      'Electrolyte Hydration Complex',
-      'Zero Sugar • Zero Calories'
+      'Essential Amino Acids',
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified',
+      '2:1:1 Fermented Intra-Fuel Matrix'
     ],
-    certifiedBadges: ['2:1:1 Ratio', 'Fermented Vegan BCAAs', 'Electrolyte Infused', 'Zero Sugar'],
+    certifiedBadges: ['Clinically Proven 50% Higher Absorption', 'Veg Dot', '2:1:1 Ratio', 'Fermented Vegan BCAAs'],
     benefits: [
       'Suppresses muscle protein breakdown during strenuous sessions',
+      'Clinically proven 50% higher digestive absorption curve',
       'Electrolytes sustain muscular contraction and hydration',
-      'Crisp, refreshing taste quenches thirst during training',
-      'Zero carbohydrates, artificial sugars, or calories'
+      'Crisp, refreshing taste quenches thirst during training'
     ],
     nutritionFacts: {
       servingSize: '7g (1 Scoop)',
@@ -438,37 +450,38 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: 'rnd-pure-l-glutamine',
-    name: 'PURE 100% Fermented L-Glutamine',
-    brandLine: 'RND PURE™',
+    name: 'TITANIUM L-GLUTAMINE Pure Recovery Amino',
+    brandLine: 'RND TITANIUM™ L-GLUTAMINE',
     category: 'recovery',
-    shortDescription: '100% pharmaceutical grade micronised L-Glutamine for rapid cellular recovery, gut integrity, and immune defense.',
-    fullDescription: 'Glutamine represents over 60% of free amino acid pools in skeletal muscle. Rigorous workouts deplete internal stores rapidly. RND PURE 100% Fermented L-Glutamine replenishes cellular reserves, supports intestinal mucosa barrier health, and accelerates post-workout glycogen synthesis.',
+    shortDescription: 'Titanium Series pure recovery amino with clinically proven 50% higher absorption.',
+    fullDescription: 'Glutamine represents over 60% of free amino acid pools in skeletal muscle. Rigorous workouts deplete internal stores rapidly. RND TITANIUM L-GLUTAMINE replenishes cellular reserves with clinically proven 50% higher absorption.',
     primaryImage: '/rnd-glutamine.svg',
-    alternateImages: ['/rnd-cre-amp.svg'],
+    alternateImages: ['/rnd-lineup-showcase.svg'],
     variants: [
       {
         id: 'gln-250g',
-        size: '250 g (0.55 lbs)',
+        size: '250 g',
         price: 500,
         mrp: 899,
         servings: '50 Servings',
-        flavors: ['Unflavoured']
+        flavors: ['Unflavoured'],
+        image: '/rnd-glutamine.svg'
       }
     ],
     defaultVariantIndex: 0,
-    highlightBadge: 'Pharma Grade Pure',
+    highlightBadge: 'Clinically Proven 50% Higher Absorption',
     clinicalHighlights: [
-      '5g Fermented Micronised L-Glutamine',
-      'Restores Intramuscular Glutamine Pools',
-      'Supports Gut Microbiome Integrity',
+      'Pure Recovery Amino',
+      'Clinically Proven 50% Higher Absorption Badge',
+      'Veg Dot Certified',
       '100% Free-Form Pharmaceutical Purity'
     ],
-    certifiedBadges: ['Pharma Grade', '100% Fermented', 'Zero Additives', 'Easily Stackable'],
+    certifiedBadges: ['Clinically Proven 50% Higher Absorption', 'Veg Dot', 'Pharma Grade', '100% Fermented'],
     benefits: [
       'Accelerates muscular repair between consecutive training days',
+      'Clinically proven 50% higher digestive absorption curve',
       'Crucial for gut lining defense and immune system resilience',
-      'Completely neutral and unflavoured; blends seamlessly into any shake',
-      'Zero fillers, colors, flavors, or additives'
+      'Completely neutral and unflavoured; blends seamlessly into any shake'
     ],
     nutritionFacts: {
       servingSize: '5g (1 Scoop)',

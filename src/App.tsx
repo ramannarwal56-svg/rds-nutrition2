@@ -26,6 +26,7 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { OrderSuccessModal } from './components/OrderSuccessModal';
 import { FloatingWhatsAppWidget } from './components/FloatingWhatsAppWidget';
 import { ContactSection } from './components/ContactSection';
+import { TitaniumShowcase } from './components/TitaniumShowcase';
 import { assetUrl } from './utils/assetUrl';
 
 export default function App() {
@@ -202,6 +203,12 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {/* Flagship Titanium Series 2x2 Showcase Section */}
+      <TitaniumShowcase
+        onSelectProduct={(product) => setQuickViewProduct(product)}
+        onAddToCart={handleAddToCart}
+      />
 
       {/* Main Catalog Section */}
       <section id="catalog-section" className="relative py-16 px-4 sm:px-6 lg:px-8">

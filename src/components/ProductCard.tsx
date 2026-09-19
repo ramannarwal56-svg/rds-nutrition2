@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Check, Eye, MessageSquare, ShieldCheck, Sparkles, Flame, Award } from 'lucide-react';
+import { ShoppingBag, Check, Eye, MessageSquare, ShieldCheck, Flame, Award, Sparkles } from 'lucide-react';
 import { Product, ProductVariant } from '../types';
 import { BRAND_INFO } from '../data/products';
 import { assetUrl } from '../utils/assetUrl';
@@ -74,7 +74,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Crisp Studio Image */}
         <img
-          src={assetUrl(product.primaryImage)}
+          src={assetUrl(currentVariant.image || product.primaryImage)}
           alt={product.name}
           referrerPolicy="no-referrer"
           onError={(e) => {

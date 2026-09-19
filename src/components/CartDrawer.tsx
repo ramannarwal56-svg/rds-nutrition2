@@ -134,7 +134,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           alt={item.productName}
                           referrerPolicy="no-referrer"
                           onError={(e) => {
-                            (e.currentTarget as HTMLImageElement).src = assetUrl('/packaging-whey.svg');
+                            (e.currentTarget as HTMLImageElement).src = assetUrl('/rnd-cre-amp.svg');
                           }}
                           className="max-h-full max-w-full object-contain"
                         />
