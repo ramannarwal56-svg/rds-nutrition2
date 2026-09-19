@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" width="600" height="650">
+  <defs>
+    <linearGradient id="colJarMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="18%" stop-color="#94a3b8" />
+      <stop offset="42%" stop-color="#cbd5e1" />
+      <stop offset="65%" stop-color="#64748b" />
+      <stop offset="88%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <linearGradient id="colLidGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="25%" stop-color="#94a3b8" />
+      <stop offset="50%" stop-color="#cbd5e1" />
+      <stop offset="75%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <linearGradient id="colGoldFoil" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="25%" stop-color="#fbbf24" />
+      <stop offset="65%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+
+    <filter id="packShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="24" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+  </defs>
+
+  <!-- Ground Shadow for Large Tub -->
+  <ellipse cx="300" cy="590" rx="230" ry="26" fill="#000000" fill-opacity="0.5" filter="blur(12px)"/>
+  <ellipse cx="300" cy="586" rx="190" ry="16" fill="#000000" fill-opacity="0.75" filter="blur(5px)"/>
+
+  <g filter="url(#packShadow)">
+    <!-- Broad Shouldered Mega Mass Gainer Tub Body -->
+    <rect x="110" y="160" width="380" height="405" rx="44" fill="url(#colJarMetal)" stroke="#64748b" stroke-width="2"/>
+
+    <!-- Wide Neck & Big Silver Ribbed Lid -->
+    <path d="M 180 160 L 420 160 L 430 115 L 170 115 Z" fill="url(#colLidGrad)" stroke="#64748b" stroke-width="1.5"/>
+    <rect x="165" y="80" width="270" height="42" rx="10" fill="url(#colLidGrad)" stroke="#64748b" stroke-width="2"/>
+    <line x1="170" y1="95" x2="430" y2="95" stroke="#cbd5e1" stroke-width="2" opacity="0.6"/>
+
+    <!-- Label Wrap Body -->
+    <rect x="125" y="180" width="350" height="360" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- Left Dark Angular Polygon Section -->
+    <path d="M 125 180 L 375 180 L 320 540 L 125 540 Z" fill="#0f172a"/>
+    <!-- Gold Slash Accent Divider -->
+    <polygon points="375,180 395,180 340,540 320,540" fill="url(#colGoldFoil)"/>
+
+    <!-- Hexagonal Pattern on Right Light Section -->
+    <g stroke="#cbd5e1" stroke-width="1.2" fill="none" opacity="0.6">
+      <polygon points="410,210 425,200 440,210 440,228 425,238 410,228" />
+      <polygon points="435,238 450,228 465,238 465,256 450,266 435,256" />
+      <polygon points="420,266 435,256 450,266 450,284 435,294 420,284" />
+      <polygon points="380,410 395,400 410,410 410,428 395,438 380,428" />
+      <polygon points="405,438 420,428 435,438 435,456 420,466 405,456" />
+    </g>
+
+    <!-- RND Logo -->
+    <g transform="translate(195, 230)">
+      <text x="0" y="0" fill="url(#colGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="38" letter-spacing="2">RND</text>
+      <circle cx="85" cy="-22" r="5" fill="none" stroke="url(#colGoldFoil)" stroke-width="1.5"/>
+      <text x="85" y="-19" fill="url(#colGoldFoil)" font-family="sans-serif" font-size="7" text-anchor="middle" font-weight="bold">R</text>
+    </g>
+
+    <!-- Product Title -->
+    <text x="145" y="295" fill="url(#colGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="2">COLOSSUS</text>
+    <text x="145" y="330" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="21" letter-spacing="1">MEGA MASS GAINER</text>
+
+    <!-- Anabolic Ratio 1:5 Circle Badge -->
+    <g transform="translate(180, 395)">
+      <circle cx="28" cy="28" r="28" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="3 2"/>
+      <text x="28" y="16" fill="#cbd5e1" font-family="sans-serif" font-weight="bold" font-size="6" text-anchor="middle">ANABOLIC</text>
+      <text x="28" y="32" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="14" text-anchor="middle">1:5</text>
+      <text x="28" y="44" fill="url(#colGoldFoil)" font-family="sans-serif" font-weight="bold" font-size="6" text-anchor="middle">FORMULA</text>
+    </g>
+
+    <!-- 3 Core Badges (Right of circle) -->
+    <g transform="translate(250, 360)">
+      <!-- Badge 1: 54g Protein -->
+      <rect x="0" y="0" width="135" height="26" rx="13" fill="#1e293b" stroke="url(#colGoldFoil)" stroke-width="1"/>
+      <text x="25" y="17" fill="url(#colGoldFoil)" font-family="sans-serif" font-weight="900" font-size="11">54g</text>
+      <text x="52" y="14" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="7">HIGH QUALITY</text>
+      <text x="52" y="21" fill="#94a3b8" font-family="sans-serif" font-weight="bold" font-size="6">PROTEIN</text>
+    </g>
+
+    <g transform="translate(240, 395)">
+      <!-- Badge 2: 1050 Calories -->
+      <rect x="0" y="0" width="135" height="26" rx="13" fill="#1e293b" stroke="url(#colGoldFoil)" stroke-width="1"/>
+      <text x="32" y="17" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="12">1050</text>
+      <text x="68" y="17" fill="url(#colGoldFoil)" font-family="sans-serif" font-weight="bold" font-size="8">CALORIES</text>
+    </g>
+
+    <g transform="translate(230, 430)">
+      <!-- Badge 3: 3g Micronized Creatine -->
+      <rect x="0" y="0" width="140" height="26" rx="13" fill="#1e293b" stroke="url(#colGoldFoil)" stroke-width="1"/>
+      <text x="22" y="17" fill="url(#colGoldFoil)" font-family="sans-serif" font-weight="900" font-size="11">3g</text>
+      <text x="44" y="14" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="7">MICRONIZED</text>
+      <text x="44" y="21" fill="#94a3b8" font-family="sans-serif" font-weight="bold" font-size="6">CREATINE</text>
+    </g>
+
+    <!-- Biozyme & Net Wt Section -->
+    <g transform="translate(145, 485)">
+      <text x="0" y="14" fill="#ffffff" font-family="sans-serif" font-weight="900" font-size="12" letter-spacing="1">BIOZYME</text>
+      <rect x="75" y="2" width="16" height="16" rx="3" fill="#ffffff" stroke="#10b981" stroke-width="1.5"/>
+      <circle cx="83" cy="10" r="4" fill="#10b981"/>
+    </g>
+
+    <!-- Net Weight in Gold Polygon on right -->
+    <polygon points="310,480 435,480 415,508 290,508" fill="url(#colGoldFoil)"/>
+    <text x="360" y="499" fill="#0f172a" font-family="sans-serif" font-weight="900" font-size="11" text-anchor="middle">Net Wt. 3 kg (6.6 lbs)</text>
+  </g>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" width="600" height="650">
+  <defs>
+    <linearGradient id="alpJarMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="20%" stop-color="#64748b" />
+      <stop offset="45%" stop-color="#94a3b8" />
+      <stop offset="70%" stop-color="#64748b" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Metallic Gold Cap Gradient -->
+    <linearGradient id="alpGoldCap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#92400e" />
+      <stop offset="15%" stop-color="#d97706" />
+      <stop offset="35%" stop-color="#fef08a" />
+      <stop offset="55%" stop-color="#f59e0b" />
+      <stop offset="85%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+
+    <linearGradient id="alpGoldFoil" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="25%" stop-color="#fbbf24" />
+      <stop offset="65%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+
+    <filter id="packShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="22" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="300" cy="580" rx="180" ry="22" fill="#000000" fill-opacity="0.5" filter="blur(10px)"/>
+  <ellipse cx="300" cy="578" rx="140" ry="14" fill="#000000" fill-opacity="0.75" filter="blur(4px)"/>
+
+  <g filter="url(#packShadow)">
+    <!-- Bottle Body Silhouette -->
+    <rect x="155" y="165" width="290" height="395" rx="36" fill="url(#alpJarMetal)" stroke="#64748b" stroke-width="2"/>
+
+    <!-- Neck & Striking Gold Ribbed Cap -->
+    <rect x="185" y="80" width="230" height="70" rx="14" fill="url(#alpGoldCap)" stroke="#b45309" stroke-width="2"/>
+    <!-- Gold Cap Ribbing -->
+    <path d="M 195 82 L 195 148 M 210 82 L 210 148 M 225 82 L 225 148 M 240 82 L 240 148 M 255 82 L 255 148 M 270 82 L 270 148 M 285 82 L 285 148 M 300 82 L 300 148 M 315 82 L 315 148 M 330 82 L 330 148 M 345 82 L 345 148 M 360 82 L 360 148 M 375 82 L 375 148 M 390 82 L 390 148 M 405 82 L 405 148" stroke="#92400e" stroke-width="2" opacity="0.65"/>
+
+    <!-- Bottle Label Wrap -->
+    <rect x="165" y="185" width="270" height="350" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- Left Dark Section with Curving Border -->
+    <path d="M 165 185 L 290 185 Q 320 280 280 340 Q 250 400 165 420 Z" fill="#0f172a"/>
+    <!-- Gold Wave Line -->
+    <path d="M 290 185 Q 320 280 280 340 Q 250 400 165 420" fill="none" stroke="url(#alpGoldFoil)" stroke-width="3"/>
+
+    <!-- Hexagonal Pattern on White Right Half -->
+    <g stroke="#d97706" stroke-width="1" fill="none" opacity="0.45">
+      <polygon points="370,210 385,200 400,210 400,228 385,238 370,228" />
+      <polygon points="395,228 410,218 425,228 425,246 410,256 395,246" />
+      <polygon points="380,256 395,246 410,256 410,274 395,284 380,274" />
+      <polygon points="360,284 375,274 390,284 390,302 375,312 360,302" />
+      <polygon points="375,312 390,302 405,312 405,330 390,340 375,330" />
+    </g>
+
+    <!-- RND Logo -->
+    <g transform="translate(185, 230)">
+      <text x="0" y="0" fill="url(#alpGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="2">RND</text>
+      <circle cx="75" cy="-20" r="4.5" fill="none" stroke="url(#alpGoldFoil)" stroke-width="1.5"/>
+      <text x="75" y="-17" fill="url(#alpGoldFoil)" font-family="sans-serif" font-size="6" text-anchor="middle" font-weight="bold">R</text>
+    </g>
+
+    <!-- ALPHA SHIELD Titles -->
+    <text x="185" y="275" fill="url(#alpGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="1">ALPHA</text>
+    <text x="185" y="302" fill="url(#alpGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="1">SHIELD</text>
+    <text x="185" y="328" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="20" letter-spacing="1">ATHLETE</text>
+    <text x="185" y="348" fill="#cbd5e1" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="14" letter-spacing="0.5">MULTIVITAMIN</text>
+
+    <!-- Gold Seal: 100% RDA -->
+    <g transform="translate(230, 360)">
+      <circle cx="28" cy="28" r="28" fill="url(#alpGoldFoil)"/>
+      <circle cx="28" cy="28" r="24" fill="#ffffff"/>
+      <text x="28" y="20" fill="#78350f" font-family="sans-serif" font-weight="bold" font-size="6" text-anchor="middle">FORMULATED</text>
+      <text x="28" y="34" fill="#0f172a" font-family="sans-serif" font-weight="900" font-size="12" text-anchor="middle">100%</text>
+      <text x="28" y="44" fill="#78350f" font-family="sans-serif" font-weight="bold" font-size="8" text-anchor="middle">RDA</text>
+    </g>
+
+    <!-- 4 Feature Cards at Bottom -->
+    <g transform="translate(172, 435)">
+      <!-- Card 1: 45 Ingredients -->
+      <rect x="0" y="0" width="60" height="52" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+      <text x="30" y="20" fill="#0f172a" font-family="sans-serif" font-weight="900" font-size="16" text-anchor="middle">45</text>
+      <text x="30" y="32" fill="#78350f" font-family="sans-serif" font-weight="bold" font-size="5.5" text-anchor="middle">INGREDIENTS</text>
+      <text x="30" y="42" fill="#94a3b8" font-family="sans-serif" font-size="4.5" text-anchor="middle">Vitamins/Minerals</text>
+
+      <!-- Card 2: KSM-66 -->
+      <rect x="64" y="0" width="60" height="52" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+      <circle cx="94" cy="14" r="7" fill="none" stroke="#0f172a" stroke-width="1"/>
+      <text x="94" y="28" fill="#0f172a" font-family="sans-serif" font-weight="900" font-size="6" text-anchor="middle">KSM-66®</text>
+      <text x="94" y="38" fill="#78350f" font-family="sans-serif" font-weight="bold" font-size="5" text-anchor="middle">ASHWAGANDHA</text>
+
+      <!-- Card 3: Testosterone Support -->
+      <rect x="128" y="0" width="60" height="52" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+      <circle cx="158" cy="14" r="5" fill="none" stroke="#0f172a" stroke-width="1.2"/>
+      <line x1="162" y1="10" x2="167" y2="5" stroke="#0f172a" stroke-width="1.2"/>
+      <text x="158" y="28" fill="#0f172a" font-family="sans-serif" font-weight="bold" font-size="5" text-anchor="middle">TESTOSTERONE</text>
+      <text x="158" y="38" fill="#78350f" font-family="sans-serif" font-weight="900" font-size="5.5" text-anchor="middle">SUPPORT</text>
+
+      <!-- Card 4: 60 Veg Tablets -->
+      <rect x="192" y="0" width="60" height="52" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1"/>
+      <rect x="216" y="8" width="12" height="6" rx="3" fill="#10b981"/>
+      <text x="222" y="26" fill="#0f172a" font-family="sans-serif" font-weight="900" font-size="12" text-anchor="middle">60</text>
+      <text x="222" y="36" fill="#78350f" font-family="sans-serif" font-weight="bold" font-size="5.5" text-anchor="middle">VEG TABLETS</text>
+    </g>
+  </g>
+</svg>

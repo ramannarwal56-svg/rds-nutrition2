@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" width="600" height="650">
+  <defs>
+    <!-- Metallic Jar Gradients -->
+    <linearGradient id="creJarMetal" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="15%" stop-color="#94a3b8" />
+      <stop offset="35%" stop-color="#cbd5e1" />
+      <stop offset="55%" stop-color="#64748b" />
+      <stop offset="85%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#334155" />
+    </linearGradient>
+
+    <linearGradient id="creLidGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="20%" stop-color="#64748b" />
+      <stop offset="50%" stop-color="#94a3b8" />
+      <stop offset="80%" stop-color="#475569" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Gold Foil Logo Gradient -->
+    <linearGradient id="creGoldFoil" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="25%" stop-color="#fbbf24" />
+      <stop offset="60%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+
+    <linearGradient id="creGreenStripe" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <!-- Soft Drop Shadow -->
+    <filter id="packShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="22" flood-color="#000000" flood-opacity="0.65" />
+    </filter>
+  </defs>
+
+  <!-- Studio Floor Shadow -->
+  <ellipse cx="300" cy="580" rx="200" ry="24" fill="#000000" fill-opacity="0.5" filter="blur(10px)"/>
+  <ellipse cx="300" cy="578" rx="160" ry="14" fill="#000000" fill-opacity="0.7" filter="blur(4px)"/>
+
+  <!-- Main Container -->
+  <g filter="url(#packShadow)">
+    <!-- Jar Body Silhouette -->
+    <rect x="130" y="150" width="340" height="410" rx="36" fill="url(#creJarMetal)" stroke="#64748b" stroke-width="2"/>
+
+    <!-- Screw Cap Lid -->
+    <rect x="132" y="90" width="336" height="74" rx="18" fill="url(#creLidGrad)" stroke="#64748b" stroke-width="2"/>
+    <!-- Lid Ribbing lines -->
+    <path d="M 145 92 L 145 162 M 165 92 L 165 162 M 185 92 L 185 162 M 205 92 L 205 162 M 225 92 L 225 162 M 245 92 L 245 162 M 265 92 L 265 162 M 285 92 L 285 162 M 305 92 L 305 162 M 325 92 L 325 162 M 345 92 L 345 162 M 365 92 L 365 162 M 385 92 L 385 162 M 405 92 L 405 162 M 425 92 L 425 162 M 445 92 L 445 162" stroke="#475569" stroke-width="2" opacity="0.6"/>
+
+    <!-- Main Label Wrap -->
+    <rect x="145" y="175" width="310" height="360" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- Honeycomb Hexagonal Molecular Pattern (Right Side) -->
+    <g stroke="#cbd5e1" stroke-width="1.2" fill="none" opacity="0.55">
+      <polygon points="410,220 425,210 440,220 440,238 425,248 410,238" />
+      <polygon points="425,248 440,238 455,248 455,266 440,276 425,266" />
+      <polygon points="395,248 410,238 425,248 425,266 410,276 395,266" />
+      <polygon points="410,276 425,266 440,276 440,294 425,304 410,294" />
+      <polygon points="425,304 440,294 455,304 455,322 440,332 425,322" />
+      <polygon points="380,410 395,400 410,410 410,428 395,438 380,428" />
+      <polygon points="395,438 410,428 425,438 425,456 410,466 395,456" />
+    </g>
+
+    <!-- Left Dark Strip (for CRE AMP) -->
+    <rect x="145" y="175" width="56" height="360" rx="10" fill="#1e293b"/>
+    <!-- Veg Square Dot -->
+    <rect x="160" y="195" width="26" height="26" rx="4" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+    <circle cx="173" cy="208" r="6" fill="#10b981" />
+
+    <!-- Vertical "CRE AMP" text -->
+    <g transform="translate(182, 450) rotate(-90)">
+      <text x="0" y="0" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="28" letter-spacing="4">CRE AMP</text>
+    </g>
+
+    <!-- RND Logo Container Polygon -->
+    <polygon points="215,185 390,185 375,255 230,255" fill="#1e293b" stroke="url(#creGoldFoil)" stroke-width="2"/>
+    <!-- RND Text in Logo -->
+    <g transform="translate(300, 235)">
+      <text x="-40" y="0" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="2">R</text>
+      <text x="-12" y="0" fill="url(#creGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="2">N</text>
+      <text x="18" y="0" fill="url(#creGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" letter-spacing="2">D</text>
+      <text x="46" y="-14" fill="url(#creGoldFoil)" font-family="sans-serif" font-weight="bold" font-size="10">TM</text>
+    </g>
+
+    <!-- Product Title -->
+    <text x="315" y="295" fill="#b45309" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="19" text-anchor="middle" letter-spacing="2">MICRONISED</text>
+    <text x="315" y="335" fill="#0f172a" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="28" text-anchor="middle" letter-spacing="1">CREATINE</text>
+    <text x="315" y="365" fill="#334155" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="20" text-anchor="middle" letter-spacing="2">MONOHYDRATE</text>
+
+    <!-- Pills Section: 3g Creatine & Trustified Certified -->
+    <g transform="translate(210, 390)">
+      <!-- Pill 1: 3g Creatine -->
+      <rect x="0" y="0" width="105" height="34" rx="17" fill="#0f172a"/>
+      <text x="22" y="22" fill="#10b981" font-family="sans-serif" font-weight="900" font-size="16">3g</text>
+      <text x="44" y="16" fill="#10b981" font-family="sans-serif" font-weight="bold" font-size="7">CREATINE</text>
+      <text x="44" y="25" fill="#cbd5e1" font-family="sans-serif" font-weight="bold" font-size="6">MONOHYDRATE</text>
+
+      <!-- Pill 2: Trustified Certified -->
+      <rect x="110" y="0" width="100" height="34" rx="17" fill="url(#creGoldFoil)"/>
+      <text x="160" y="15" fill="#0f172a" font-family="sans-serif" font-weight="900" font-size="8" text-anchor="middle">TRUSTIFIED</text>
+      <text x="160" y="25" fill="#0f172a" font-family="sans-serif" font-weight="800" font-size="8" text-anchor="middle">CERTIFIED</text>
+    </g>
+
+    <!-- Net Quantity Polygon Badge -->
+    <polygon points="270,445 360,445 348,478 282,478" fill="#0f172a"/>
+    <text x="315" y="468" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="18" text-anchor="middle">250g</text>
+
+    <!-- Subtle Curved Lighting Highlight -->
+    <path d="M 148 180 Q 200 180 200 530 L 175 530 Q 175 220 148 200 Z" fill="#ffffff" opacity="0.2"/>
+  </g>
+</svg>
