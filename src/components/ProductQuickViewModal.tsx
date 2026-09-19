@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Check, ShoppingBag, ShieldCheck, Zap, Award, Sparkles, MessageSquare } from 'lucide-react';
+import { X, Check, ShoppingBag, ShieldCheck, Zap, Award, Sparkles, MessageSquare, ArrowLeft } from 'lucide-react';
 import { Product, ProductVariant } from '../types';
 import { BRAND_INFO } from '../data/products';
 import { assetUrl } from '../utils/assetUrl';
@@ -83,15 +83,42 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
             transition={{ duration: 0.2 }}
             className="relative w-full max-w-4xl rounded-3xl bg-neutral-900 border border-neutral-700 shadow-2xl overflow-hidden z-10 my-8"
           >
-          {/* Close button */}
-          <button
-            id="close-quickview-btn"
-            type="button"
-            onClick={onClose}
-            className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-700 transition-colors cursor-pointer"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          {/* Top Sticky Navigation Bar with Back Button & Breadcrumbs */}
+          <div className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-6 py-3.5 bg-neutral-950/95 backdrop-blur-md border-b border-neutral-800">
+            <button
+              id="quickview-back-btn"
+              type="button"
+              onClick={onClose}
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-neutral-200 hover:text-white border border-neutral-700/80 font-bold text-xs transition-colors cursor-pointer shadow-sm group"
+            >
+              <ArrowLeft className="w-4 h-4 text-amber-400 group-hover:-translate-x-0.5 transition-transform" />
+              <span>Back to Products</span>
+            </button>
+
+            <div className="hidden md:flex items-center gap-2 text-xs text-neutral-400 truncate max-w-sm">
+              <button
+                type="button"
+                onClick={onClose}
+                className="hover:text-amber-400 transition-colors cursor-pointer"
+              >
+                Store
+              </button>
+              <span>/</span>
+              <span className="capitalize">{product.category}</span>
+              <span>/</span>
+              <span className="text-white font-medium truncate">{product.name}</span>
+            </div>
+
+            <button
+              id="close-quickview-btn"
+              type="button"
+              onClick={onClose}
+              className="p-2 rounded-xl bg-neutral-900 text-neutral-400 hover:text-white hover:bg-neutral-800 border border-neutral-800 transition-colors cursor-pointer"
+              title="Close product details"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8">
             {/* Left: Product Packshot View */}
@@ -298,6 +325,15 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
                       +
                     </button>
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-neutral-800 hover:bg-neutral-700 text-neutral-300 hover:text-white border border-neutral-700 transition-colors cursor-pointer"
+                  >
+                    <ArrowLeft className="w-4 h-4 text-amber-400" />
+                    <span>Back</span>
+                  </button>
 
                   <button
                     id="quickview-add-to-cart"

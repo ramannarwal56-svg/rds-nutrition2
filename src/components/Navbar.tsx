@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, Search, MessageSquare, Menu, X } from 'lucide-react';
+import { ShoppingBag, Search, MessageSquare, Menu, X, ArrowLeft } from 'lucide-react';
 import { BRAND_INFO } from '../data/products';
 
 interface NavbarProps {
@@ -9,6 +9,9 @@ interface NavbarProps {
   onSearchChange: (q: string) => void;
   selectedCategory: string;
   onSelectCategory: (cat: string) => void;
+  canGoBack?: boolean;
+  onBack?: () => void;
+  backLabel?: string;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -18,6 +21,9 @@ export const Navbar: React.FC<NavbarProps> = ({
   onSearchChange,
   selectedCategory,
   onSelectCategory,
+  canGoBack = false,
+  onBack,
+  backLabel = 'Back',
 }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -67,29 +73,52 @@ export const Navbar: React.FC<NavbarProps> = ({
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
-          {/* Brand Logo */}
-          <a
-            href="#"
-            className="flex items-center gap-2.5 group cursor-pointer focus:outline-none"
-          >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 via-amber-300 to-yellow-500 p-0.5 shadow-md shadow-amber-400/25 group-hover:shadow-amber-400/40 transition-shadow">
-              <div className="w-full h-full bg-neutral-950 rounded-[10px] flex items-center justify-center">
-                <span className="font-display font-black text-lg tracking-wider text-amber-400">
-                  RND
+          <div className="flex items-center gap-3">
+            {/* Global Back button when navigated to a subview/category/modal */}
+            {canGoBack && onBack && (
+              <button
+                id="navbar-back-btn"
+                type="button"
+                onClick={onBack}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-neutral-950 font-bold text-xs shadow-md shadow-amber-400/20 transition-all cursor-pointer group flex-shrink-0"
+                title={`Back: ${backLabel}`}
+              >
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+                <span className="hidden sm:inline">{backLabel}</span>
+                <span className="sm:hidden">Back</span>
+              </button>
+            )}
+
+            {/* Brand Logo */}
+            <a
+              href="#"
+              onClick={(e) => {
+                if (canGoBack && onBack) {
+                  e.preventDefault();
+                  onBack();
+                }
+              }}
+              className="flex items-center gap-2.5 group cursor-pointer focus:outline-none"
+            >
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 via-amber-300 to-yellow-500 p-0.5 shadow-md shadow-amber-400/25 group-hover:shadow-amber-400/40 transition-shadow">
+                <div className="w-full h-full bg-neutral-950 rounded-[10px] flex items-center justify-center">
+                  <span className="font-display font-black text-lg tracking-wider text-amber-400">
+                    RND
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex flex-col">
+                <span className="font-display font-black text-lg sm:text-xl tracking-tight text-white flex items-center gap-1">
+                  <span>RND</span>
+                  <span className="text-amber-400">NUTRITION</span>
+                </span>
+                <span className="text-[10px] tracking-widest uppercase font-semibold text-neutral-400 -mt-1">
+                  Official Factory Store
                 </span>
               </div>
-            </div>
-
-            <div className="flex flex-col">
-              <span className="font-display font-black text-lg sm:text-xl tracking-tight text-white flex items-center gap-1">
-                <span>RND</span>
-                <span className="text-amber-400">NUTRITION</span>
-              </span>
-              <span className="text-[10px] tracking-widest uppercase font-semibold text-neutral-400 -mt-1">
-                Official Factory Store
-              </span>
-            </div>
-          </a>
+            </a>
+          </div>
 
           {/* Desktop Navigation Category Links */}
           <nav className="hidden lg:flex items-center gap-1 bg-neutral-900/90 p-1 rounded-xl border border-neutral-800">
@@ -198,6 +227,20 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="mt-4 p-4 rounded-2xl bg-neutral-900/98 border border-neutral-800 backdrop-blur-xl lg:hidden space-y-2">
+            {canGoBack && onBack && (
+              <button
+                type="button"
+                onClick={() => {
+                  onBack();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-bold bg-amber-400 text-neutral-950 shadow-md shadow-amber-400/20 mb-2 cursor-pointer"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back ({backLabel})</span>
+              </button>
+            )}
+
             <div className="text-xs font-bold text-neutral-400 uppercase tracking-wider px-2 mb-1">
               Supplement Categories
             </div>

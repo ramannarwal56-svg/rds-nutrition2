@@ -13,7 +13,8 @@ import {
   Search,
   CheckCircle2,
   Phone,
-  MessageSquare
+  MessageSquare,
+  ArrowLeft
 } from 'lucide-react';
 import { PRODUCTS, BRAND_INFO } from './data/products';
 import { Product, ProductVariant, CartItem, PlacedOrder } from './types';
@@ -50,6 +51,82 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high'>('featured');
+
+  // Back navigation tracking & browser history integration
+  useEffect(() => {
+    const handlePopState = () => {
+      // Browser back button pressed: dismiss active modal
+      if (placedOrder) {
+        setPlacedOrder(null);
+      } else if (isCheckoutOpen) {
+        setIsCheckoutOpen(false);
+      } else if (isCartOpen) {
+        setIsCartOpen(false);
+      } else if (quickViewProduct) {
+        setQuickViewProduct(null);
+      } else if (searchQuery) {
+        setSearchQuery('');
+      } else if (selectedCategory !== 'all') {
+        setSelectedCategory('all');
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [placedOrder, isCheckoutOpen, isCartOpen, quickViewProduct, searchQuery, selectedCategory]);
+
+  const isAnyModalOpen = Boolean(quickViewProduct || isCartOpen || isCheckoutOpen || placedOrder);
+  const isFiltered = selectedCategory !== 'all' || searchQuery.trim() !== '';
+  const canGoBack = isAnyModalOpen || isFiltered;
+
+  let backLabel = 'Store';
+  if (placedOrder) {
+    backLabel = 'Back to Store';
+  } else if (isCheckoutOpen) {
+    backLabel = 'Back to Cart';
+  } else if (isCartOpen) {
+    backLabel = 'Back to Store';
+  } else if (quickViewProduct) {
+    backLabel = 'Back to Products';
+  } else if (searchQuery.trim()) {
+    backLabel = 'Clear Search';
+  } else if (selectedCategory !== 'all') {
+    backLabel = 'All Supplements';
+  }
+
+  const handleGlobalBack = () => {
+    if (placedOrder) {
+      setPlacedOrder(null);
+    } else if (isCheckoutOpen) {
+      setIsCheckoutOpen(false);
+      setIsCartOpen(true);
+    } else if (isCartOpen) {
+      setIsCartOpen(false);
+    } else if (quickViewProduct) {
+      setQuickViewProduct(null);
+    } else if (searchQuery) {
+      setSearchQuery('');
+    } else if (selectedCategory !== 'all') {
+      setSelectedCategory('all');
+    }
+  };
+
+  // Helper when opening modals to register history entry
+  const handleOpenProduct = (product: Product) => {
+    window.history.pushState({ rndModal: 'product', id: product.id }, '');
+    setQuickViewProduct(product);
+  };
+
+  const handleOpenCart = () => {
+    window.history.pushState({ rndModal: 'cart' }, '');
+    setIsCartOpen(true);
+  };
+
+  const handleOpenCheckout = () => {
+    window.history.pushState({ rndModal: 'checkout' }, '');
+    setIsCartOpen(false);
+    setIsCheckoutOpen(true);
+  };
 
   // Save cart to localStorage
   useEffect(() => {
@@ -106,6 +183,7 @@ export default function App() {
   };
 
   const handleOrderCompleted = (order: PlacedOrder) => {
+    window.history.pushState({ rndModal: 'success' }, '');
     setPlacedOrder(order);
     setCartItems([]);
     setIsCheckoutOpen(false);
@@ -143,20 +221,23 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen text-neutral-100 bg-neutral-950 selection:bg-amber-400/30 selection:text-amber-300">
-      {/* Navigation */}
+      {/* Navigation with Global Back Button */}
       <Navbar
         cartCount={totalCartCount}
-        onOpenCart={() => setIsCartOpen(true)}
+        onOpenCart={handleOpenCart}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         selectedCategory={selectedCategory}
         onSelectCategory={setSelectedCategory}
+        canGoBack={canGoBack}
+        onBack={handleGlobalBack}
+        backLabel={backLabel}
       />
 
       {/* Hero Showcase with Flagship Jars */}
       <Hero3D
         onExploreClick={scrollToCatalog}
-        onSelectProduct={(product) => setQuickViewProduct(product)}
+        onSelectProduct={handleOpenProduct}
       />
 
       {/* Value Pillars Strip */}
@@ -206,7 +287,7 @@ export default function App() {
 
       {/* Flagship Titanium Series 2x2 Showcase Section */}
       <TitaniumShowcase
-        onSelectProduct={(product) => setQuickViewProduct(product)}
+        onSelectProduct={handleOpenProduct}
         onAddToCart={handleAddToCart}
       />
 
@@ -273,16 +354,38 @@ export default function App() {
             ))}
           </div>
 
-          {/* Active Search Notification */}
-          {searchQuery && (
-            <div className="mb-6 flex items-center justify-between p-3 rounded-xl bg-neutral-900 border border-neutral-800 text-xs text-neutral-300">
-              <span>Showing results for "{searchQuery}"</span>
+          {/* Active Filter or Search Banner with Back Button */}
+          {(selectedCategory !== 'all' || searchQuery) && (
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3 p-3.5 sm:p-4 rounded-2xl bg-neutral-900 border border-neutral-800 text-xs text-neutral-300">
+              <div className="flex items-center gap-2">
+                <span className="text-neutral-400">Current View:</span>
+                <span className="font-bold text-white bg-neutral-800 px-2.5 py-1 rounded-lg border border-neutral-700">
+                  {selectedCategory !== 'all'
+                    ? {
+                        performance: 'Pre-Workout & Creatine',
+                        protein: 'Whey & Vegan Proteins',
+                        gainers: 'Mass Gainers',
+                        recovery: 'BCAA & Glutamine',
+                        wellness: 'Vitamins & Health',
+                      }[selectedCategory] || selectedCategory
+                    : `Search: "${searchQuery}"`}
+                </span>
+                <span className="text-neutral-400 text-[11px]">
+                  ({filteredProducts.length} {filteredProducts.length === 1 ? 'supplement' : 'supplements'})
+                </span>
+              </div>
+
               <button
+                id="catalog-back-to-all-btn"
                 type="button"
-                onClick={() => setSearchQuery('')}
-                className="text-amber-400 font-semibold hover:underline cursor-pointer"
+                onClick={() => {
+                  setSelectedCategory('all');
+                  setSearchQuery('');
+                }}
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-neutral-950 font-bold text-xs transition-colors cursor-pointer group shadow-sm shadow-amber-400/20"
               >
-                Clear Search
+                <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
+                <span>Back to All Supplements</span>
               </button>
             </div>
           )}
@@ -299,9 +402,10 @@ export default function App() {
                   setSelectedCategory('all');
                   setSearchQuery('');
                 }}
-                className="mt-4 px-4 py-2 rounded-xl text-xs font-bold bg-neutral-800 hover:bg-neutral-700 text-white cursor-pointer"
+                className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold bg-amber-400 hover:bg-amber-300 text-neutral-950 cursor-pointer"
               >
-                Reset Filters
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back to All Supplements</span>
               </button>
             </div>
           ) : (
@@ -311,7 +415,7 @@ export default function App() {
                   key={product.id}
                   product={product}
                   onAddToCart={handleAddToCart}
-                  onQuickView={(p) => setQuickViewProduct(p)}
+                  onQuickView={handleOpenProduct}
                 />
               ))}
             </div>
@@ -418,10 +522,7 @@ export default function App() {
         items={cartItems}
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
-        onCheckout={() => {
-          setIsCartOpen(false);
-          setIsCheckoutOpen(true);
-        }}
+        onCheckout={handleOpenCheckout}
       />
 
       {/* Checkout Modal with UPI QR & WhatsApp Click-to-Chat */}

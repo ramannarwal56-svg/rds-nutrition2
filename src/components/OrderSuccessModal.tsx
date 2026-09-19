@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, MessageSquare, ExternalLink, ArrowRight, Package, Copy, Check, Send } from 'lucide-react';
+import { CheckCircle2, MessageSquare, ExternalLink, ArrowRight, ArrowLeft, Package, Copy, Check, Send } from 'lucide-react';
 import { PlacedOrder } from '../types';
 import { BRAND_INFO } from '../data/products';
 import { formatWhatsAppOrderMessage, getWhatsAppUrl, launchWhatsApp } from '../utils/whatsappNotification';
@@ -137,9 +137,10 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({ order, onC
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 py-3 px-4 rounded-xl font-bold text-xs bg-neutral-100 hover:bg-white text-neutral-900 transition-colors cursor-pointer"
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-xs bg-neutral-100 hover:bg-white text-neutral-900 transition-colors cursor-pointer flex items-center justify-center gap-1.5"
               >
-                Back to Store
+                <ArrowLeft className="w-3.5 h-3.5" />
+                <span>Back to Store</span>
               </button>
             </div>
           </motion.div>

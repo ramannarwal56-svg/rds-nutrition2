@@ -230,14 +230,25 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           {/* Header */}
           <div className="p-5 sm:p-6 border-b border-neutral-800 flex items-center justify-between bg-neutral-950/60">
             <div className="flex items-center gap-3">
-              {step === 'payment' && (
+              {step === 'payment' ? (
                 <button
                   type="button"
                   onClick={() => setStep('details')}
-                  className="p-2 rounded-xl bg-neutral-800 text-neutral-400 hover:text-white transition-colors cursor-pointer"
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-neutral-800 text-neutral-300 hover:text-white hover:bg-neutral-700 transition-colors text-xs font-semibold cursor-pointer border border-neutral-700/70 group"
                   title="Back to Details"
                 >
-                  <ArrowLeft className="w-4 h-4" />
+                  <ArrowLeft className="w-3.5 h-3.5 text-amber-400 group-hover:-translate-x-0.5 transition-transform" />
+                  <span>Back</span>
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-neutral-800 text-neutral-300 hover:text-white hover:bg-neutral-700 transition-colors text-xs font-semibold cursor-pointer border border-neutral-700/70 group"
+                  title="Back to Store"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5 text-amber-400 group-hover:-translate-x-0.5 transition-transform" />
+                  <span>Back</span>
                 </button>
               )}
               <div>
@@ -260,6 +271,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               type="button"
               onClick={onClose}
               className="p-2 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors cursor-pointer"
+              title="Close Checkout"
             >
               <X className="w-5 h-5" />
             </button>
@@ -458,6 +470,15 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   >
                     <span>Proceed to UPI Payment &amp; Enter UTR</span>
                     <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="w-full flex items-center justify-center gap-1.5 py-2 px-4 rounded-xl text-xs font-semibold text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors cursor-pointer"
+                  >
+                    <ArrowLeft className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Back to Store</span>
                   </button>
 
                   <div className="flex items-center justify-center gap-1.5 text-[11px] text-neutral-400 text-center pt-1">
@@ -677,6 +698,15 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     <MessageSquare className="w-5 h-5 fill-current" />
                     <span>Verify UTR &amp; Confirm Order on WhatsApp ({BRAND_INFO.supportPhone})</span>
                     <ExternalLink className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setStep('details')}
+                    className="w-full flex items-center justify-center gap-1.5 py-2 px-4 rounded-xl text-xs font-semibold text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors cursor-pointer"
+                  >
+                    <ArrowLeft className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Back to Delivery Details</span>
                   </button>
 
                   <p className="text-center text-[11px] text-neutral-400 leading-normal px-2">

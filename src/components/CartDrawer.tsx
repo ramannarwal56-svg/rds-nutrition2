@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Trash2, ShoppingBag, ArrowRight, ShieldCheck, Truck, MessageSquare } from 'lucide-react';
+import { X, Trash2, ShoppingBag, ArrowRight, ArrowLeft, ShieldCheck, Truck, MessageSquare } from 'lucide-react';
 import { CartItem } from '../types';
 import { BRAND_INFO } from '../data/products';
 import { assetUrl } from '../utils/assetUrl';
@@ -52,14 +52,25 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               className="w-screen max-w-md bg-neutral-900 border-l border-neutral-800 shadow-2xl flex flex-col"
             >
               {/* Header */}
-              <div className="p-6 border-b border-neutral-800 flex items-center justify-between">
+              <div className="p-5 sm:p-6 border-b border-neutral-800 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
+                  <button
+                    id="cart-back-btn"
+                    type="button"
+                    onClick={onClose}
+                    className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-neutral-800 text-neutral-300 hover:text-white hover:bg-neutral-700 transition-colors text-xs font-semibold cursor-pointer border border-neutral-700/70 group"
+                    title="Back to shopping"
+                  >
+                    <ArrowLeft className="w-3.5 h-3.5 text-amber-400 group-hover:-translate-x-0.5 transition-transform" />
+                    <span>Back</span>
+                  </button>
+
                   <div className="p-2 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                    <ShoppingBag className="w-5 h-5" />
+                    <ShoppingBag className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <h2 className="text-lg font-bold text-white font-display">Your Cart</h2>
-                    <span className="text-xs text-neutral-400">
+                    <h2 className="text-base sm:text-lg font-bold text-white font-display">Your Cart</h2>
+                    <span className="text-[11px] sm:text-xs text-neutral-400">
                       {items.length} {items.length === 1 ? 'item' : 'items'} selected
                     </span>
                   </div>
@@ -70,6 +81,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   type="button"
                   onClick={onClose}
                   className="p-2 rounded-full text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors cursor-pointer"
+                  title="Close Cart"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -112,9 +124,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     <button
                       type="button"
                       onClick={onClose}
-                      className="mt-6 px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-emerald-500 text-neutral-950 hover:bg-emerald-400 transition-colors cursor-pointer"
+                      className="mt-6 flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider bg-amber-400 text-neutral-950 hover:bg-amber-300 transition-colors cursor-pointer group shadow-md shadow-amber-400/20"
                     >
-                      Start Shopping
+                      <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
+                      <span>Back to Supplements</span>
                     </button>
                   </div>
                 ) : (
@@ -221,6 +234,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     <MessageSquare className="w-4 h-4 fill-current" />
                     <span>Proceed to Order (Send to WhatsApp)</span>
                     <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    className="w-full flex items-center justify-center gap-1.5 py-2 px-4 rounded-xl text-xs font-semibold text-neutral-400 hover:text-white hover:bg-neutral-900 transition-colors cursor-pointer border border-transparent hover:border-neutral-800"
+                  >
+                    <ArrowLeft className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Continue Shopping (Back to Store)</span>
                   </button>
 
                   <div className="flex items-center justify-center gap-1.5 text-[11px] text-neutral-500">
