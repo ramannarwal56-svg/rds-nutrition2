@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, Trash2, ShoppingBag, ArrowRight, ShieldCheck, Truck } from 'lucide-react';
 import { CartItem } from '../types';
 import { BRAND_INFO } from '../data/products';
+import { assetUrl } from '../utils/assetUrl';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -129,11 +130,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       {/* Thumbnail */}
                       <div className="w-16 h-16 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center p-1 flex-shrink-0">
                         <img
-                          src={item.image}
+                          src={assetUrl(item.image)}
                           alt={item.productName}
                           referrerPolicy="no-referrer"
                           onError={(e) => {
-                            (e.currentTarget as HTMLImageElement).src = '/packaging-whey.svg';
+                            (e.currentTarget as HTMLImageElement).src = assetUrl('/packaging-whey.svg');
                           }}
                           className="max-h-full max-w-full object-contain"
                         />

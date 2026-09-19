@@ -32,8 +32,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   items,
   onOrderCompleted,
 }) => {
-  if (!isOpen) return null;
-
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const isFreeShipping = subtotal >= BRAND_INFO.freeShippingThreshold || subtotal === 0;
   const shippingFee = isFreeShipping ? 0 : BRAND_INFO.shippingFee;
@@ -57,6 +55,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [dynamicQrDataUrl, setDynamicQrDataUrl] = useState<string>('');
 
+  useEffect(() => {
+    if (isOpen) {
+      setStep('details');
+      setCopiedUpi(false);
+    }
+  }, [isOpen]);
+
   const handleCopyUpi = () => {
     navigator.clipboard.writeText(BRAND_INFO.upiId);
     setCopiedUpi(true);
@@ -67,7 +72,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   const upiIntentUrl = `upi://pay?pa=${encodeURIComponent(BRAND_INFO.upiId)}&pn=${encodeURIComponent((BRAND_INFO as any).payeeName || 'Deepanshu')}&am=${total}&cu=INR&tn=${encodeURIComponent(`RND Order ${items.length} items`)}`;
 
   useEffect(() => {
-    if (total > 0) {
+    if (isOpen && total > 0) {
       QRCode.toDataURL(upiIntentUrl, {
         errorCorrectionLevel: 'H',
         margin: 1,
@@ -80,7 +85,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
         .then((url) => setDynamicQrDataUrl(url))
         .catch(() => {});
     }
-  }, [upiIntentUrl, total]);
+  }, [isOpen, upiIntentUrl, total]);
 
   const validateDetails = (): boolean => {
     const newErrors: Partial<Record<keyof CheckoutFormData, string>> = {};
@@ -192,23 +197,24 @@ Please confirm my order and share the tracking details. Thank you!`;
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        {/* Backdrop */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-black/85 backdrop-blur-md"
-        />
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/85 backdrop-blur-md"
+          />
 
-        {/* Modal Window */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-2xl bg-neutral-900 border border-neutral-700/80 rounded-3xl shadow-2xl overflow-hidden z-10 my-6 flex flex-col max-h-[92vh]"
-        >
+          {/* Modal Window */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            className="relative w-full max-w-2xl bg-neutral-900 border border-neutral-700/80 rounded-3xl shadow-2xl overflow-hidden z-10 my-6 flex flex-col max-h-[92vh]"
+          >
           {/* Header */}
           <div className="p-5 sm:p-6 border-b border-neutral-800 flex items-center justify-between bg-neutral-950/60">
             <div className="flex items-center gap-3">
@@ -621,6 +627,7 @@ Please confirm my order and share the tracking details. Thank you!`;
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
-  );
+    )}
+  </AnimatePresence>
+);
 };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Check, ShoppingBag, ShieldCheck, Zap, Award, Sparkles, MessageSquare } from 'lucide-react';
 import { Product, ProductVariant } from '../types';
@@ -15,23 +15,37 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
   onClose,
   onAddToCart,
 }) => {
-  if (!product) return null;
-
-  const [selectedVariantIndex, setSelectedVariantIndex] = useState(product.defaultVariantIndex);
-  const currentVariant = product.variants[selectedVariantIndex] || product.variants[0];
-  const [selectedFlavor, setSelectedFlavor] = useState(currentVariant.flavors[0]);
+  const [selectedVariantIndex, setSelectedVariantIndex] = useState(0);
+  const [selectedFlavor, setSelectedFlavor] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [isAdded, setIsAdded] = useState(false);
 
+  useEffect(() => {
+    if (product) {
+      const defaultIdx = product.defaultVariantIndex || 0;
+      setSelectedVariantIndex(defaultIdx);
+      const variant = product.variants[defaultIdx] || product.variants[0];
+      setSelectedFlavor(variant ? variant.flavors[0] : '');
+      setQuantity(1);
+      setIsAdded(false);
+    }
+  }, [product?.id]);
+
+  const currentVariant = product
+    ? product.variants[selectedVariantIndex] || product.variants[0]
+    : null;
+
   const handleVariantChange = (index: number) => {
+    if (!product) return;
     setSelectedVariantIndex(index);
     const newVariant = product.variants[index];
-    if (!newVariant.flavors.includes(selectedFlavor)) {
+    if (newVariant && !newVariant.flavors.includes(selectedFlavor)) {
       setSelectedFlavor(newVariant.flavors[0]);
     }
   };
 
   const handleAddToCart = () => {
+    if (!product || !currentVariant) return;
     onAddToCart(product, currentVariant, selectedFlavor, quantity);
     setIsAdded(true);
     setTimeout(() => {
@@ -40,33 +54,34 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
     }, 1200);
   };
 
-  const mrp = currentVariant.mrp || Math.round(currentVariant.price * 1.4);
-  const discountPercent = Math.round(((mrp - currentVariant.price) / mrp) * 100);
+  const mrp = currentVariant ? (currentVariant.mrp || Math.round(currentVariant.price * 1.4)) : 0;
+  const discountPercent = currentVariant ? Math.round(((mrp - currentVariant.price) / mrp) * 100) : 0;
 
-  const whatsappDirectOrderUrl = `https://wa.me/${BRAND_INFO.supportWhatsappNumber}?text=${encodeURIComponent(
+  const whatsappDirectOrderUrl = product && currentVariant ? `https://wa.me/${BRAND_INFO.supportWhatsappNumber}?text=${encodeURIComponent(
     `Hi RND Nutrition, I want to order:\n- Product: ${product.name}\n- Size: ${currentVariant.size}\n- Flavour: ${selectedFlavor}\n- Quantity: ${quantity}\n- Total: ₹${currentVariant.price * quantity}\nPlease confirm availability and payment details.`
-  )}`;
+  )}` : '';
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
-        {/* Backdrop */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={onClose}
-          className="fixed inset-0 bg-black/85 backdrop-blur-md"
-        />
+      {product && currentVariant && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-black/85 backdrop-blur-md"
+          />
 
-        {/* Modal Container */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: 15 }}
-          transition={{ duration: 0.2 }}
-          className="relative w-full max-w-4xl rounded-3xl bg-neutral-900 border border-neutral-700 shadow-2xl overflow-hidden z-10 my-8"
-        >
+          {/* Modal Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+            transition={{ duration: 0.2 }}
+            className="relative w-full max-w-4xl rounded-3xl bg-neutral-900 border border-neutral-700 shadow-2xl overflow-hidden z-10 my-8"
+          >
           {/* Close button */}
           <button
             id="close-quickview-btn"
@@ -314,6 +329,7 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
           </div>
         </motion.div>
       </div>
-    </AnimatePresence>
-  );
+    )}
+  </AnimatePresence>
+);
 };

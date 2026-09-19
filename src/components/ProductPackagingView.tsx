@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Sparkles } from 'lucide-react';
+import { assetUrl } from '../utils/assetUrl';
 
 interface ProductPackagingViewProps {
   imageSrc: string;
@@ -22,7 +23,8 @@ export const ProductPackagingView: React.FC<ProductPackagingViewProps> = ({
   const [hasError, setHasError] = useState(false);
 
   // Fallback path check: e.g. /Screenshot 2026-09-13 080857.jpg or /assets/...
-  const currentSrc = hasError ? '/packaging-whey.svg' : imageSrc;
+  const rawSrc = hasError ? '/packaging-whey.svg' : imageSrc;
+  const currentSrc = assetUrl(rawSrc);
 
   return (
     <div className={`relative flex flex-col items-center justify-center p-4 ${className}`}>

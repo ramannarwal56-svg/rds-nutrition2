@@ -2,5 +2,7 @@
   "name": "RND Nutrition - Official Supplements Store",
   "description": "Official sports supplements store and catalog for RND Nutrition. High-performance Whey Proteins, CRE AMP Creatine, IGNITION X Pre-Workout, COLOSSUS Mass Gainer, and ALPHA SHIELD Multivitamin with instant UPI checkout.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

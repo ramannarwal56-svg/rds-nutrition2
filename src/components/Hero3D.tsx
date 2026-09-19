@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck, Zap, Award, Sparkles, ArrowRight, MessageSquare, Flame, CheckCircle2, ChevronRight } from 'lucide-react';
 import { BRAND_INFO, PRODUCTS } from '../data/products';
 import { Product } from '../types';
+import { assetUrl } from '../utils/assetUrl';
 
 interface Hero3DProps {
   onExploreClick: () => void;
@@ -193,7 +194,7 @@ export const Hero3D: React.FC<Hero3DProps> = ({ onExploreClick, onSelectProduct 
                   style={{ backgroundColor: activeProduct.color }}
                 />
                 <img
-                  src={activeProduct.image}
+                  src={assetUrl(activeProduct.image)}
                   alt={activeProduct.title}
                   referrerPolicy="no-referrer"
                   className="max-h-64 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_20px_25px_rgba(0,0,0,0.9)]"

@@ -26,6 +26,7 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { OrderSuccessModal } from './components/OrderSuccessModal';
 import { FloatingWhatsAppWidget } from './components/FloatingWhatsAppWidget';
 import { ContactSection } from './components/ContactSection';
+import { assetUrl } from './utils/assetUrl';
 
 export default function App() {
   // Cart state with localStorage persistence
@@ -316,7 +317,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 flex flex-col items-center justify-center p-8 rounded-3xl bg-neutral-950 border border-neutral-800 shadow-2xl">
             <img
-              src="/rnd-ignition-x.svg"
+              src={assetUrl('/rnd-ignition-x.svg')}
               alt="RND Ignition X Pre-Workout Packaging"
               referrerPolicy="no-referrer"
               className="max-h-64 w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)]"

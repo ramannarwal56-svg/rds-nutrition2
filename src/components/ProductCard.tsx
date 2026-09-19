@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShoppingBag, Check, Eye, MessageSquare, ShieldCheck, Sparkles, Flame, Award } from 'lucide-react';
 import { Product, ProductVariant } from '../types';
 import { BRAND_INFO } from '../data/products';
+import { assetUrl } from '../utils/assetUrl';
 
 interface ProductCardProps {
   product: Product;
@@ -73,11 +74,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Crisp Studio Image */}
         <img
-          src={product.primaryImage}
+          src={assetUrl(product.primaryImage)}
           alt={product.name}
           referrerPolicy="no-referrer"
           onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = '/rnd-cre-amp.svg';
+            (e.currentTarget as HTMLImageElement).src = assetUrl('/rnd-cre-amp.svg');
           }}
           className="max-h-56 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_15px_20px_rgba(0,0,0,0.8)]"
         />
