@@ -28,6 +28,7 @@ import { OrderSuccessModal } from './components/OrderSuccessModal';
 import { FloatingWhatsAppWidget } from './components/FloatingWhatsAppWidget';
 import { ContactSection } from './components/ContactSection';
 import { TitaniumShowcase } from './components/TitaniumShowcase';
+import { SafeProductImage } from './components/SafeProductImage';
 import { assetUrl } from './utils/assetUrl';
 
 export default function App() {
@@ -113,17 +114,17 @@ export default function App() {
 
   // Helper when opening modals to register history entry
   const handleOpenProduct = (product: Product) => {
-    window.history.pushState({ rndModal: 'product', id: product.id }, '');
+    window.history.pushState({ rndModal: 'product', id: product.id }, '', window.location.href);
     setQuickViewProduct(product);
   };
 
   const handleOpenCart = () => {
-    window.history.pushState({ rndModal: 'cart' }, '');
+    window.history.pushState({ rndModal: 'cart' }, '', window.location.href);
     setIsCartOpen(true);
   };
 
   const handleOpenCheckout = () => {
-    window.history.pushState({ rndModal: 'checkout' }, '');
+    window.history.pushState({ rndModal: 'checkout' }, '', window.location.href);
     setIsCartOpen(false);
     setIsCheckoutOpen(true);
   };
@@ -183,7 +184,7 @@ export default function App() {
   };
 
   const handleOrderCompleted = (order: PlacedOrder) => {
-    window.history.pushState({ rndModal: 'success' }, '');
+    window.history.pushState({ rndModal: 'success' }, '', window.location.href);
     setPlacedOrder(order);
     setCartItems([]);
     setIsCheckoutOpen(false);
@@ -427,10 +428,12 @@ export default function App() {
       <section className="relative py-16 px-4 sm:px-6 lg:px-8 border-t border-neutral-800 bg-neutral-900/40">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 flex flex-col items-center justify-center p-8 rounded-3xl bg-neutral-950 border border-neutral-800 shadow-2xl">
-            <img
-              src={assetUrl('/rnd-ignition-x.svg')}
+            <SafeProductImage
+              src="/rnd-ignition-x.svg"
               alt="RND Ignition X Pre-Workout Packaging"
-              referrerPolicy="no-referrer"
+              productName="IGNITION X Pre-Workout"
+              category="Pre-Workout"
+              accentColor="#f97316"
               className="max-h-64 w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.9)]"
             />
             <div className="mt-4 text-center">

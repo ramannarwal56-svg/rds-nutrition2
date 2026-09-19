@@ -1,117 +1,324 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 650" width="600" height="650">
   <defs>
-    <!-- Dark Bottle Metallic/Amber Gradients -->
-    <linearGradient id="alphaBottleMetal" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#1e293b" />
-      <stop offset="20%" stop-color="#334155" />
-      <stop offset="40%" stop-color="#64748b" />
-      <stop offset="60%" stop-color="#94a3b8" />
-      <stop offset="85%" stop-color="#475569" />
-      <stop offset="100%" stop-color="#0f172a" />
+    <!-- Studio Ambient Radial Background -->
+    <radialGradient id="bgStudio_alpha_shield" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="55%" stop-color="#f8fafc" />
+      <stop offset="85%" stop-color="#e2e8f0" />
+      <stop offset="100%" stop-color="#cbd5e1" />
+    </radialGradient>
+
+    <!-- Front Box Face Lighting: Rich Matte Carbon Finish -->
+    <linearGradient id="frontGrad_alpha_shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#242831" />
+      <stop offset="25%" stop-color="#191c23" />
+      <stop offset="70%" stop-color="#101319" />
+      <stop offset="100%" stop-color="#090b0e" />
     </linearGradient>
 
-    <linearGradient id="alphaLidGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#0f172a" />
-      <stop offset="30%" stop-color="#1e293b" />
-      <stop offset="50%" stop-color="#475569" />
-      <stop offset="80%" stop-color="#1e293b" />
-      <stop offset="100%" stop-color="#090d16" />
+    <!-- Side Box Face: Darker in Perspective with Soft Fill -->
+    <linearGradient id="sideGrad_alpha_shield" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0c10" />
+      <stop offset="40%" stop-color="#12151b" />
+      <stop offset="85%" stop-color="#181c23" />
+      <stop offset="100%" stop-color="#0d0f14" />
     </linearGradient>
 
-    <!-- Gold Foil Logo Gradient -->
-    <linearGradient id="alphaGoldFoil" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fef08a" />
-      <stop offset="25%" stop-color="#fbbf24" />
-      <stop offset="60%" stop-color="#d97706" />
+    <!-- Top Box Flap: Light catching the top surface -->
+    <linearGradient id="topGrad_alpha_shield" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2c323e" />
+      <stop offset="40%" stop-color="#3b4352" />
+      <stop offset="70%" stop-color="#2a303b" />
+      <stop offset="100%" stop-color="#181b22" />
+    </linearGradient>
+
+    <!-- Metallic Gold Hot-Foil Stamp -->
+    <linearGradient id="goldFoil_alpha_shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb" />
+      <stop offset="20%" stop-color="#fef08a" />
+      <stop offset="45%" stop-color="#f59e0b" />
+      <stop offset="70%" stop-color="#d97706" />
+      <stop offset="85%" stop-color="#fef3c7" />
       <stop offset="100%" stop-color="#b45309" />
     </linearGradient>
 
-    <!-- Soft Drop Shadow -->
-    <filter id="packShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="28" stdDeviation="22" flood-color="#000000" flood-opacity="0.65" />
+    <!-- Spot UV Gloss Sheen on Front Panel -->
+    <linearGradient id="glossSheen_alpha_shield" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14" />
+      <stop offset="30%" stop-color="#ffffff" stop-opacity="0.04" />
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0.0" />
+      <stop offset="80%" stop-color="#ffffff" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.0" />
+    </linearGradient>
+
+    <!-- Holographic Anti-Counterfeit Seal Gradient -->
+    <linearGradient id="holoSeal_alpha_shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="25%" stop-color="#eab308" />
+      <stop offset="50%" stop-color="#10b981" />
+      <stop offset="75%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+
+    <!-- Soft Diffuse Shadows -->
+    <filter id="shadowBlur_alpha_shield" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" />
+    </filter>
+    <filter id="deepBlur_alpha_shield" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="16" />
+    </filter>
+    <filter id="contactBlur_alpha_shield" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" />
     </filter>
   </defs>
 
-  <!-- Studio Floor Shadow -->
-  <ellipse cx="300" cy="580" rx="190" ry="22" fill="#000000" fill-opacity="0.5" filter="blur(10px)"/>
-  <ellipse cx="300" cy="578" rx="150" ry="14" fill="#000000" fill-opacity="0.75" filter="blur(4px)"/>
+  <!-- Clean Minimalist Studio Background -->
+  <rect width="600" height="650" fill="url(#bgStudio_alpha_shield)" />
 
-  <!-- Main Container -->
-  <g filter="url(#packShadow)">
-    <!-- Sleek Bottle Body -->
-    <rect x="150" y="160" width="300" height="400" rx="30" fill="url(#alphaBottleMetal)" stroke="#64748b" stroke-width="2"/>
+  <!-- Studio Ambient Floor Shadow -->
+  <ellipse cx="320" cy="565" rx="220" ry="38" fill="#000000" fill-opacity="0.18" filter="url(#deepBlur_alpha_shield)" />
+  <ellipse cx="320" cy="560" rx="180" ry="24" fill="#000000" fill-opacity="0.32" filter="url(#shadowBlur_alpha_shield)" />
 
-    <!-- Bottle Neck -->
-    <path d="M 190 160 L 410 160 L 390 125 L 210 125 Z" fill="url(#alphaLidGrad)" stroke="#475569" stroke-width="1.5"/>
+  <!-- Chiseled Pedestal Slab -->
+  <g>
+    <!-- Base Bevel Edge -->
+    <polygon points="50,568 550,568 570,610 30,610" fill="#1e2430" />
+    <polygon points="30,610 570,610 575,618 25,618" fill="#0f1218" />
+    <!-- Slate Top Surface with Specular Lighting -->
+    <polygon points="60,555 540,555 550,568 50,568" fill="#2d3545" />
+    <line x1="60" y1="555" x2="540" y2="555" stroke="#64748b" stroke-width="1.2" opacity="0.6" />
+    
+    <!-- Mirror Ground Reflection of Box Base -->
+    <polygon points="160,535 380,550 475,510" 
+             fill="#000000" opacity="0.25" filter="url(#shadowBlur_alpha_shield)" />
+  </g>
 
-    <!-- Bottle Screw Cap -->
-    <rect x="200" y="70" width="200" height="65" rx="12" fill="url(#alphaLidGrad)" stroke="#64748b" stroke-width="2"/>
-    <rect x="210" y="75" width="180" height="10" rx="5" fill="url(#alphaGoldFoil)" opacity="0.9"/>
+  <!-- Contact Occlusion Shadow Under Box Feet -->
+  <polygon points="152,529 384,545 487,502 380,536 166,519" 
+           fill="#000000" fill-opacity="0.92" filter="url(#contactBlur_alpha_shield)" />
 
-    <!-- Ribbing -->
-    <path d="M 215 88 L 215 125 M 230 88 L 230 125 M 245 88 L 245 125 M 260 88 L 260 125 M 275 88 L 275 125 M 290 88 L 290 125 M 305 88 L 305 125 M 320 88 L 320 125 M 335 88 L 335 125 M 350 88 L 350 125 M 365 88 L 365 125 M 380 88 L 380 125" stroke="#334155" stroke-width="2"/>
+  <!-- ================= 3D REALISTIC PACKAGING BOX ================= -->
+  <g id="realisticSupplementBox">
 
-    <!-- Main Label Wrap -->
-    <rect x="160" y="180" width="280" height="360" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
-
-    <!-- Honeycomb Hexagonal Pattern -->
-    <g stroke="#cbd5e1" stroke-width="1.2" fill="none" opacity="0.55">
-      <polygon points="390,220 405,210 420,220 420,238 405,248 390,238" />
-      <polygon points="405,248 420,238 435,248 435,266 420,276 405,266" />
-      <polygon points="375,248 390,238 405,248 405,266 390,276 375,266" />
-      <polygon points="390,276 405,266 420,276 420,294 405,304 390,294" />
-      <polygon points="370,410 385,400 400,410 400,428 385,438 370,428" />
-      <polygon points="385,438 400,428 415,438 415,456 400,466 385,456" />
+    <!-- 1. SIDE FACE (Perspective Angle with Nutrition & Barcode) -->
+    <polygon points="380,215 475,185 475,500 380,540" 
+             fill="url(#sideGrad_alpha_shield)" stroke="#050608" stroke-width="0.8" />
+    
+    <!-- Side Face Geometric Tech Grid Texture -->
+    <g opacity="0.08">
+      <line x1="400" y1="255" x2="455" y2="320" stroke="#ffffff" stroke-width="1" stroke-dasharray="4,4" />
+      <line x1="420" y1="315" x2="465" y2="380" stroke="#ffffff" stroke-width="1" stroke-dasharray="4,4" />
+      <line x1="440" y1="375" x2="475" y2="440" stroke="#ffffff" stroke-width="1" stroke-dasharray="4,4" />
     </g>
 
-    <!-- Left Dark Strip -->
-    <rect x="160" y="180" width="52" height="360" rx="10" fill="#0f172a"/>
-    <!-- Veg Square Dot -->
-    <rect x="174" y="198" width="24" height="24" rx="4" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
-    <circle cx="186" cy="210" r="5" fill="#10b981" />
+    <!-- Side Face Perspective Content (Nutrition Panel, Barcode, Certifications) -->
+    <g transform="translate(392, 260) skewY(-16) scale(0.65, 0.95)">
+      <!-- Mini Nutrition Header Box -->
+      <rect x="0" y="0" width="125" height="110" rx="3" fill="#141720" stroke="#334155" stroke-width="1" />
+      <rect x="0" y="0" width="125" height="18" fill="#1e293b" />
+      <text x="6" y="13" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="9" font-weight="800" letter-spacing="0.5">SUPPLEMENT FACTS</text>
+      
+      <text x="6" y="32" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="7.5">Serving Size: 1 Scoop (33g)</text>
+      <line x1="6" y1="36" x2="119" y2="36" stroke="#475569" stroke-width="0.8" />
+      
+      <text x="6" y="48" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8" font-weight="700">Energy</text>
+      <text x="119" y="48" text-anchor="end" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8">132 kcal</text>
+      
+      <text x="6" y="60" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8" font-weight="700">Protein</text>
+      <text x="119" y="60" text-anchor="end" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="8" font-weight="800">28.0 g</text>
+      
+      <text x="6" y="72" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8" font-weight="700">Carbohydrate</text>
+      <text x="119" y="72" text-anchor="end" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8">1.8 g</text>
+      
+      <text x="6" y="84" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8" font-weight="700">Dietary Fiber</text>
+      <text x="119" y="84" text-anchor="end" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8">0.0 g</text>
+      
+      <text x="6" y="96" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8" font-weight="700">Total Fat</text>
+      <text x="119" y="96" text-anchor="end" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8">0.4 g</text>
 
-    <!-- Vertical "ALPHA SHIELD" text -->
-    <g transform="translate(196, 460) rotate(-90)">
-      <text x="0" y="0" fill="#3b82f6" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" letter-spacing="3">ALPHA SHIELD</text>
+      <!-- FSSAI & Quality Badge Box -->
+      <rect x="0" y="125" width="125" height="42" rx="3" fill="#141720" stroke="#334155" stroke-width="1" />
+      <text x="6" y="140" fill="#22c55e" font-family="system-ui, sans-serif" font-size="8" font-weight="800">✓ 100% AUTHENTIC</text>
+      <text x="6" y="152" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="7">GMP • ISO 22000 • HACCP</text>
+      <text x="6" y="162" fill="#cbd5e1" font-family="system-ui, sans-serif" font-size="6.5">Lic. No. 10020042000188</text>
+
+      <!-- Real Retail Barcode Block -->
+      <rect x="0" y="180" width="125" height="60" rx="2" fill="#ffffff" />
+      <!-- Barcode Lines -->
+      <g fill="#000000" transform="translate(10, 8)">
+        <rect x="0" y="0" width="3" height="34" />
+        <rect x="5" y="0" width="1.5" height="34" />
+        <rect x="8" y="0" width="4" height="34" />
+        <rect x="15" y="0" width="2" height="34" />
+        <rect x="19" y="0" width="1" height="34" />
+        <rect x="23" y="0" width="3" height="34" />
+        <rect x="28" y="0" width="5" height="34" />
+        <rect x="35" y="0" width="1.5" height="34" />
+        <rect x="39" y="0" width="3" height="34" />
+        <rect x="44" y="0" width="2" height="34" />
+        <rect x="49" y="0" width="4" height="34" />
+        <rect x="56" y="0" width="1.5" height="34" />
+        <rect x="60" y="0" width="3" height="34" />
+        <rect x="65" y="0" width="2" height="34" />
+        <rect x="70" y="0" width="4" height="34" />
+        <rect x="76" y="0" width="1.5" height="34" />
+        <rect x="80" y="0" width="3" height="34" />
+        <rect x="85" y="0" width="4" height="34" />
+        <rect x="91" y="0" width="2" height="34" />
+        <rect x="95" y="0" width="3" height="34" />
+        <rect x="100" y="0" width="2" height="34" />
+      </g>
+      <text x="62" y="52" text-anchor="middle" fill="#000000" font-family="monospace" font-size="8" font-weight="700">8 908012 345091</text>
+
+      <!-- Batch & Expiry Stamp -->
+      <text x="4" y="255" fill="#64748b" font-family="monospace" font-size="7">BN: RND-ALPHA_-26</text>
+      <text x="4" y="265" fill="#64748b" font-family="monospace" font-size="7">MFD: 08/2026  EXP: 08/2028</text>
     </g>
 
-    <!-- RND Logo Container Polygon -->
-    <polygon points="230,190 385,190 370,255 245,255" fill="#0f172a" stroke="url(#alphaGoldFoil)" stroke-width="2"/>
-    <!-- RND Text in Logo -->
-    <g transform="translate(308, 235)">
-      <text x="-36" y="0" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="30" letter-spacing="2">R</text>
-      <text x="-10" y="0" fill="url(#alphaGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="30" letter-spacing="2">N</text>
-      <text x="16" y="0" fill="url(#alphaGoldFoil)" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="30" letter-spacing="2">D</text>
-      <text x="42" y="-12" fill="url(#alphaGoldFoil)" font-family="sans-serif" font-weight="bold" font-size="9">TM</text>
+    <!-- Side Panel Shadow Gradient Overlay -->
+    <polygon points="380,215 475,185 475,500 380,540" 
+             fill="url(#glossSheen_alpha_shield)" opacity="0.1" pointer-events="none"/>
+
+
+    <!-- 2. TOP BOX FLAP (3D Perspective Surface with Security Hologram) -->
+    <polygon points="160,200 380,215 475,185 255,172" 
+             fill="url(#topGrad_alpha_shield)" stroke="#1a1e27" stroke-width="0.8" />
+    
+    <!-- Top Flap Carton Fold Seam & Crease -->
+    <line x1="190" y1="197" x2="450" y2="188" stroke="#475569" stroke-width="0.9" opacity="0.5" />
+    
+    <!-- Top Face Subtle Brand Mark -->
+    <g transform="translate(292, 186) skewX(-32) scale(0.8, 0.5)" opacity="0.35">
+      <text x="0" y="0" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="16" font-weight="900" letter-spacing="3">RND</text>
     </g>
 
-    <!-- Product Title -->
-    <text x="325" y="295" fill="#2563eb" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="15" text-anchor="middle" letter-spacing="1">ADVANCED ATHLETE FORMULA</text>
-    <text x="325" y="332" fill="#0f172a" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="24" text-anchor="middle" letter-spacing="1">MULTIVITAMIN</text>
-    <text x="325" y="360" fill="#64748b" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="13" text-anchor="middle" letter-spacing="1">45 ACTIVES • IMMUNITY &amp; ENERGY</text>
-
-    <!-- Pills Section -->
-    <g transform="translate(225, 390)">
-      <!-- Pill 1: 45 Actives -->
-      <rect x="0" y="0" width="100" height="34" rx="17" fill="#0f172a"/>
-      <text x="18" y="22" fill="#60a5fa" font-family="sans-serif" font-weight="900" font-size="16">45</text>
-      <text x="44" y="16" fill="#60a5fa" font-family="sans-serif" font-weight="bold" font-size="7">ACTIVES</text>
-      <text x="44" y="25" fill="#cbd5e1" font-family="sans-serif" font-weight="bold" font-size="6">100% RDA</text>
-
-      <!-- Pill 2: Trustified Certified -->
-      <rect x="106" y="0" width="95" height="34" rx="17" fill="url(#alphaGoldFoil)"/>
-      <text x="153" y="15" fill="#0f172a" font-family="sans-serif" font-weight="900" font-size="8" text-anchor="middle">TRUSTIFIED</text>
-      <text x="153" y="25" fill="#0f172a" font-family="sans-serif" font-weight="800" font-size="8" text-anchor="middle">CERTIFIED</text>
+    <!-- Holographic Anti-Tamper Security Seal Tape (Spanning top edge) -->
+    <g transform="translate(345, 207) skewY(4) rotate(-3)">
+      <rect x="0" y="0" width="55" height="18" rx="2" fill="url(#holoSeal_alpha_shield)" opacity="0.88" />
+      <rect x="0" y="0" width="55" height="18" rx="2" fill="#ffffff" opacity="0.2" />
+      <text x="27" y="12" text-anchor="middle" fill="#0f172a" font-family="system-ui, sans-serif" font-size="7.5" font-weight="900" letter-spacing="1">SEALED</text>
+      <!-- Security Serial Dots -->
+      <circle cx="5" cy="9" r="1.5" fill="#ffffff" opacity="0.8" />
+      <circle cx="50" cy="9" r="1.5" fill="#ffffff" opacity="0.8" />
     </g>
 
-    <!-- Net Quantity Polygon Badge -->
-    <polygon points="275,445 375,445 362,478 288,478" fill="#0f172a"/>
-    <text x="325" y="468" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="15" text-anchor="middle">60 Tablets</text>
 
-    <!-- FSSAI mark -->
-    <text x="400" y="520" fill="#10b981" font-family="sans-serif" font-weight="900" font-size="11">fssai</text>
+    <!-- 3. FRONT BOX FACE (Hero Presentation Surface) -->
+    <polygon points="160,200 380,215 380,540 160,525" 
+             fill="url(#frontGrad_alpha_shield)" stroke="#090b0e" stroke-width="1.0" />
+    
+    <!-- Front Face Edge Bevel Lighting (Realistic 3D Edge Highlight) -->
+    <line x1="161" y1="201" x2="161" y2="524" stroke="#475569" stroke-width="1.2" opacity="0.8" />
+    <line x1="160" y1="201" x2="379" y2="216" stroke="#64748b" stroke-width="1.2" opacity="0.7" />
 
-    <!-- Lighting Highlight -->
-    <path d="M 164 185 Q 210 185 210 535 L 185 535 Q 185 225 164 205 Z" fill="#ffffff" opacity="0.2"/>
+    <!-- Corner Fold Shadow Crease between Front and Side -->
+    <line x1="380" y1="215" x2="380" y2="540" stroke="#000000" stroke-width="2.5" />
+    <line x1="379" y1="215" x2="379" y2="540" stroke="#384252" stroke-width="1.0" opacity="0.6" />
+
+    <!-- Luxury Geometric Box Facet Texture -->
+    <g opacity="0.04" stroke="#ffffff" stroke-width="1">
+      <line x1="160" y1="280" x2="380" y2="335" />
+      <line x1="160" y1="360" x2="380" y2="415" />
+      <line x1="160" y1="440" x2="380" y2="495" />
+      <line x1="160" y1="520" x2="380" y2="575" />
+    </g>
+
+    <!-- Front Diagonal Spot-UV Gloss Sheen Reflection -->
+    <polygon points="160,200 340,215 240,525 160,465" 
+             fill="url(#glossSheen_alpha_shield)" />
+
+    <!-- ================= FRONT PANEL BRANDING CONTENT ================= -->
+    <g transform="translate(178, 224)">
+
+      <!-- TOP BRAND HEADER ROW -->
+      <!-- Green Veg Dot Indicator (Official Food Safety Compliance) -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="16" height="16" rx="2" fill="#ffffff" stroke="#16a34a" stroke-width="1.5" />
+        <circle cx="8" cy="8" r="4.5" fill="#16a34a" />
+      </g>
+
+      <!-- RND NUTRITION BRAND LOGO -->
+      <g transform="translate(26, 0)">
+        <text x="0" y="13" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="900" letter-spacing="3.5">RND</text>
+        <text x="52" y="13" fill="#94a3b8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" letter-spacing="2">NUTRITION</text>
+      </g>
+
+      <!-- Gold Foil Accent Divider -->
+      <g transform="translate(0, 24)">
+        <rect x="0" y="0" width="195" height="2" fill="url(#goldFoil_alpha_shield)" />
+        <circle cx="97" cy="1" r="2" fill="#fef08a" />
+      </g>
+
+      <!-- TITANIUM SERIES EMBOSSED BADGE -->
+      <g transform="translate(0, 36)">
+        <rect x="0" y="0" width="118" height="17" rx="3" fill="#0f172a" stroke="#d97706" stroke-width="1.2" />
+        <text x="59" y="12" text-anchor="middle" fill="#fef08a" font-family="system-ui, sans-serif" font-size="9" font-weight="900" letter-spacing="1.5">TITANIUM SERIES</text>
+      </g>
+
+      <!-- HERO PRODUCT TITLE (EMBOSSED GOLD FOIL STAMP) -->
+      <g transform="translate(0, 72)">
+        <!-- Raised Drop Shadow on Box Surface -->
+        <text x="1.5" y="1.5" fill="#000000" fill-opacity="0.9" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="950" letter-spacing="1">TITANIUM ALPHA SHIELD</text>
+        <!-- Hot Foil Stamped Face -->
+        <text x="0" y="0" fill="url(#goldFoil_alpha_shield)" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="950" letter-spacing="1">TITANIUM ALPHA SHIELD</text>
+      </g>
+
+      <!-- WHITE CRISP SUBTITLE / CATEGORY -->
+      <g transform="translate(0, 94)">
+        <text x="0" y="0" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800" letter-spacing="1">ELITE MULTIVITAMIN &amp; MINERALS</text>
+      </g>
+
+      <!-- DUAL SPECS TAGS -->
+      <g transform="translate(0, 110)">
+        <rect x="0" y="0" width="102" height="19" rx="2" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="51" y="13" text-anchor="middle" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="8.5" font-weight="800">42 BIOACTIVE VITS</text>
+
+        <rect x="108" y="0" width="86" height="19" rx="2" fill="#1e293b" stroke="#334155" stroke-width="1" />
+        <text x="151" y="13" text-anchor="middle" fill="#fbbf24" font-family="system-ui, sans-serif" font-size="8.5" font-weight="800">TESTO MATRIX</text>
+      </g>
+
+      <!-- ================= HERO MEDAL: 50% HIGHER ABSORPTION ================= -->
+      <g transform="translate(98, 195)">
+        <!-- Outer Gold Glow -->
+        <circle cx="0" cy="0" r="48" fill="url(#goldFoil_alpha_shield)" opacity="0.15" filter="url(#contactBlur_alpha_shield)" />
+        <!-- Serrated Medal Backing -->
+        <circle cx="0" cy="0" r="42" fill="#11151e" stroke="url(#goldFoil_alpha_shield)" stroke-width="2.5" />
+        <!-- Inner Concentric Ring -->
+        <circle cx="0" cy="0" r="37" fill="none" stroke="#d97706" stroke-width="1" stroke-dasharray="3,2" />
+        <!-- Medal Content -->
+        <text x="0" y="-18" text-anchor="middle" fill="#fef08a" font-family="system-ui, sans-serif" font-size="7.5" font-weight="900" letter-spacing="1">CLINICALLY</text>
+        <text x="0" y="-9" text-anchor="middle" fill="#fef08a" font-family="system-ui, sans-serif" font-size="7.5" font-weight="900" letter-spacing="1">PROVEN</text>
+        <text x="0" y="12" text-anchor="middle" fill="url(#goldFoil_alpha_shield)" font-family="system-ui, sans-serif" font-size="22" font-weight="950">50%</text>
+        <text x="0" y="24" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="8" font-weight="800" letter-spacing="0.5">HIGHER</text>
+        <text x="0" y="33" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="7" font-weight="800" letter-spacing="0.5">ABSORPTION</text>
+      </g>
+
+      <!-- BOTTOM QUALITY & CLINICAL CALLOUTS -->
+      <g transform="translate(0, 272)">
+        <!-- Key Selling Point Bullets -->
+        <g transform="translate(0, 0)">
+          <circle cx="4" cy="4" r="2.5" fill="#f59e0b" />
+          <text x="12" y="7" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8.5" font-weight="600">Bio-Fermented Rapid Uptake</text>
+        </g>
+        <g transform="translate(0, 16)">
+          <circle cx="4" cy="4" r="2.5" fill="#f59e0b" />
+          <text x="12" y="7" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8.5" font-weight="600">Zero Added Sugars • Dope Free</text>
+        </g>
+        <g transform="translate(0, 32)">
+          <circle cx="4" cy="4" r="2.5" fill="#f59e0b" />
+          <text x="12" y="7" fill="#e2e8f0" font-family="system-ui, sans-serif" font-size="8.5" font-weight="600">cGMP &amp; FSSAI Certified Facility</text>
+        </g>
+      </g>
+
+      <!-- BOTTOM FOOTER: NET WEIGHT & AUTHENTICITY STAMP -->
+      <g transform="translate(0, 326)">
+        <rect x="0" y="0" width="195" height="24" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="1" />
+        <text x="10" y="16" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="9" font-weight="900" letter-spacing="1">60 TABLETS (2 MONTHS)</text>
+        <rect x="135" y="4" width="52" height="16" rx="2" fill="#d97706" />
+        <text x="161" y="15" text-anchor="middle" fill="#000000" font-family="system-ui, sans-serif" font-size="7.5" font-weight="900">100% PURE</text>
+      </g>
+
+    </g>
+
   </g>
 </svg>

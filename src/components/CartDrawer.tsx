@@ -4,6 +4,7 @@ import { X, Trash2, ShoppingBag, ArrowRight, ArrowLeft, ShieldCheck, Truck, Mess
 import { CartItem } from '../types';
 import { BRAND_INFO } from '../data/products';
 import { assetUrl } from '../utils/assetUrl';
+import { SafeProductImage } from './SafeProductImage';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -142,13 +143,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     >
                       {/* Thumbnail */}
                       <div className="w-16 h-16 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center p-1 flex-shrink-0">
-                        <img
-                          src={assetUrl(item.image)}
+                        <SafeProductImage
+                          src={item.image}
                           alt={item.productName}
-                          referrerPolicy="no-referrer"
-                          onError={(e) => {
-                            (e.currentTarget as HTMLImageElement).src = assetUrl('/rnd-cre-amp.svg');
-                          }}
+                          productName={item.productName}
+                          category="Supplement"
+                          fallbackSrc="/rnd-cre-amp.svg"
                           className="max-h-full max-w-full object-contain"
                         />
                       </div>

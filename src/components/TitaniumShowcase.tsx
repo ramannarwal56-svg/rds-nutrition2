@@ -3,6 +3,7 @@ import { Sparkles, ShieldCheck, Award, Eye, ShoppingBag, CheckCircle2, ChevronRi
 import { Product, ProductVariant } from '../types';
 import { PRODUCTS } from '../data/products';
 import { assetUrl } from '../utils/assetUrl';
+import { SafeProductImage } from './SafeProductImage';
 
 interface TitaniumShowcaseProps {
   onSelectProduct: (product: Product) => void;
@@ -150,10 +151,12 @@ export const TitaniumShowcase: React.FC<TitaniumShowcaseProps> = ({
 
                   {/* 3D Product Tub Packshot */}
                   <div className="relative w-full aspect-square max-w-[280px] flex items-center justify-center my-2">
-                    <img
-                      src={assetUrl(item.image)}
+                    <SafeProductImage
+                      src={item.image}
                       alt={item.prod?.name || item.title2}
-                      referrerPolicy="no-referrer"
+                      productName={item.prod?.name || item.title2}
+                      category="Protein"
+                      accentColor="#eab308"
                       className="w-full h-full object-contain filter drop-shadow-[0_15px_20px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -220,10 +223,12 @@ export const TitaniumShowcase: React.FC<TitaniumShowcaseProps> = ({
                   </div>
 
                   <div className="relative aspect-square flex items-center justify-center my-2 p-2">
-                    <img
-                      src={assetUrl(item.image)}
+                    <SafeProductImage
+                      src={item.image}
                       alt={item.prod?.name || item.title2}
-                      referrerPolicy="no-referrer"
+                      productName={item.prod?.name || item.title2}
+                      category="Protein"
+                      accentColor="#eab308"
                       className="max-h-56 w-auto object-contain drop-shadow-[0_12px_18px_rgba(0,0,0,0.85)] group-hover:scale-105 transition-transform"
                     />
                   </div>

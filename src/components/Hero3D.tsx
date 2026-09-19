@@ -3,6 +3,7 @@ import { ShieldCheck, Zap, Award, Sparkles, ArrowRight, MessageSquare, Flame, Ch
 import { BRAND_INFO, PRODUCTS } from '../data/products';
 import { Product } from '../types';
 import { assetUrl } from '../utils/assetUrl';
+import { SafeProductImage } from './SafeProductImage';
 
 interface Hero3DProps {
   onExploreClick: () => void;
@@ -217,10 +218,12 @@ export const Hero3D: React.FC<Hero3DProps> = ({ onExploreClick, onSelectProduct 
                   className="absolute w-44 h-44 rounded-full blur-3xl opacity-25 pointer-events-none"
                   style={{ backgroundColor: activeProduct.color }}
                 />
-                <img
-                  src={assetUrl(activeProduct.image)}
+                <SafeProductImage
+                  src={activeProduct.image}
                   alt={activeProduct.title}
-                  referrerPolicy="no-referrer"
+                  productName={activeProduct.title}
+                  category={activeProduct.tag}
+                  accentColor={activeProduct.color}
                   className="max-h-64 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_20px_25px_rgba(0,0,0,0.9)]"
                 />
               </div>

@@ -180,7 +180,8 @@ export const PRODUCTS: Product[] = [
         price: 599,
         mrp: 999,
         servings: '60 Servings',
-        flavors: ['Vegetarian Tablets']
+        flavors: ['Vegetarian Tablets'],
+        image: '/rnd-alpha-shield.svg'
       }
     ],
     defaultVariantIndex: 0,

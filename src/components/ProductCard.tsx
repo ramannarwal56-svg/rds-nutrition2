@@ -3,6 +3,7 @@ import { ShoppingBag, Check, Eye, MessageSquare, ShieldCheck, Flame, Award, Spar
 import { Product, ProductVariant } from '../types';
 import { BRAND_INFO } from '../data/products';
 import { assetUrl } from '../utils/assetUrl';
+import { SafeProductImage } from './SafeProductImage';
 
 interface ProductCardProps {
   product: Product;
@@ -73,13 +74,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         />
 
         {/* Crisp Studio Image */}
-        <img
-          src={assetUrl(currentVariant.image || product.primaryImage)}
+        <SafeProductImage
+          src={currentVariant.image || product.primaryImage}
           alt={product.name}
-          referrerPolicy="no-referrer"
-          onError={(e) => {
-            (e.currentTarget as HTMLImageElement).src = assetUrl('/rnd-cre-amp.svg');
-          }}
+          productName={product.name}
+          category={product.category}
+          accentColor={product.accentColor}
+          fallbackSrc={product.primaryImage}
           className="max-h-56 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_15px_20px_rgba(0,0,0,0.8)]"
         />
 

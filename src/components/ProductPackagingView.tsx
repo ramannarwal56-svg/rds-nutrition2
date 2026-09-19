@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Sparkles } from 'lucide-react';
-import { assetUrl } from '../utils/assetUrl';
+import { SafeProductImage } from './SafeProductImage';
 
 interface ProductPackagingViewProps {
   imageSrc: string;
@@ -20,12 +20,6 @@ export const ProductPackagingView: React.FC<ProductPackagingViewProps> = ({
   className = '',
   floatAnimation = true,
 }) => {
-  const [hasError, setHasError] = useState(false);
-
-  // Fallback path check: e.g. /rnd-cre-amp.svg
-  const rawSrc = hasError ? '/rnd-cre-amp.svg' : imageSrc;
-  const currentSrc = assetUrl(rawSrc);
-
   return (
     <div className={`relative flex flex-col items-center justify-center p-4 ${className}`}>
       {/* Dynamic Ambient Color Halo */}
@@ -51,11 +45,12 @@ export const ProductPackagingView: React.FC<ProductPackagingViewProps> = ({
         }}
         className="relative z-10 flex items-center justify-center"
       >
-        <img
-          src={currentSrc}
+        <SafeProductImage
+          src={imageSrc}
           alt={alt}
-          referrerPolicy="no-referrer"
-          onError={() => setHasError(true)}
+          productName={alt}
+          accentColor={accentColor}
+          fallbackSrc="/rnd-cre-amp.svg"
           className="max-h-56 w-auto object-contain drop-shadow-[0_20px_25px_rgba(0,0,0,0.85)] filter transition-transform duration-500 hover:scale-105"
         />
 

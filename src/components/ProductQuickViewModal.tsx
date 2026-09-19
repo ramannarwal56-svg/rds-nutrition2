@@ -4,6 +4,7 @@ import { X, Check, ShoppingBag, ShieldCheck, Zap, Award, Sparkles, MessageSquare
 import { Product, ProductVariant } from '../types';
 import { BRAND_INFO } from '../data/products';
 import { assetUrl } from '../utils/assetUrl';
+import { SafeProductImage } from './SafeProductImage';
 
 interface ProductQuickViewModalProps {
   product: Product | null;
@@ -134,13 +135,13 @@ export const ProductQuickViewModal: React.FC<ProductQuickViewModalProps> = ({
                 style={{ backgroundColor: product.accentColor }}
               />
 
-              <img
-                src={assetUrl(currentVariant?.image || product.primaryImage)}
+              <SafeProductImage
+                src={currentVariant?.image || product.primaryImage}
                 alt={product.name}
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).src = assetUrl('/rnd-cre-amp.svg');
-                }}
+                productName={product.name}
+                category={product.category}
+                accentColor={product.accentColor}
+                fallbackSrc={product.primaryImage}
                 className="max-h-72 w-auto object-contain my-4 drop-shadow-[0_20px_25px_rgba(0,0,0,0.9)]"
               />
 
