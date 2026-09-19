@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CheckCircle2, MessageSquare, ExternalLink, ArrowRight, Package, Copy, Check } from 'lucide-react';
+import { CheckCircle2, MessageSquare, ExternalLink, ArrowRight, Package, Copy, Check, Send } from 'lucide-react';
 import { PlacedOrder } from '../types';
 import { BRAND_INFO } from '../data/products';
+import { formatWhatsAppOrderMessage, getWhatsAppUrl, launchWhatsApp } from '../utils/whatsappNotification';
 
 interface OrderSuccessModalProps {
   order: PlacedOrder | null;
@@ -10,48 +11,29 @@ interface OrderSuccessModalProps {
 }
 
 export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({ order, onClose }) => {
-  const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const formatMessageAgain = (): string => {
-    if (!order) return '';
-    const itemsList = order.items
-      .map(
-        (item, idx) =>
-          `${idx + 1}. *${item.productName}*\n   Size: ${item.size} | Flavour: ${item.flavor}\n   Qty: ${item.quantity} × ₹${item.price} = ₹${item.price * item.quantity}`
-      )
-      .join('\n\n');
+  const receiptText = order ? formatWhatsAppOrderMessage(order) : '';
+  const whatsappUrl = order ? getWhatsAppUrl(order) : '';
 
-    const addressFull = `${order.customer.addressLine1}, ${order.customer.city}, ${order.customer.state} - ${order.customer.pincode}`;
-
-    return `🏋️ *RND NUTRITION - NEW ORDER CONFIRMATION*
-━━━━━━━━━━━━━━━━━━━━
-*Order ID:* ${order.orderId}
-
-👤 *Customer Details:*
-• *Name:* ${order.customer.fullName}
-• *Phone:* ${order.customer.phoneNumber}
-📍 *Delivery Address:*
-${addressFull}
-
-📦 *Ordered Items:*
-${itemsList}
-
-━━━━━━━━━━━━━━━━━━━━
-• *TOTAL AMOUNT (UPI):* ₹${order.total}
-• *Paid to UPI ID:* ${BRAND_INFO.upiId} (${(BRAND_INFO as any).payeeName || 'Deepanshu'})
-${order.customer.paymentReference ? `• *UPI Ref:* ${order.customer.paymentReference}` : '• *Payment:* Paid via Google Pay QR'}
-━━━━━━━━━━━━━━━━━━━━
-Please confirm my order and share the tracking details. Thank you!`;
-  };
-
-  const whatsappUrl = order
-    ? `https://wa.me/${BRAND_INFO.supportWhatsappNumber}?text=${encodeURIComponent(formatMessageAgain())}`
-    : '';
+  useEffect(() => {
+    if (order && receiptText) {
+      // Auto-copy receipt text to clipboard so it's always ready to paste
+      navigator.clipboard.writeText(receiptText).catch(() => {});
+    }
+  }, [order, receiptText]);
 
   const handleCopyReceipt = () => {
-    navigator.clipboard.writeText(formatMessageAgain());
+    if (!receiptText) return;
+    navigator.clipboard.writeText(receiptText);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleOpenWhatsApp = () => {
+    if (whatsappUrl) {
+      launchWhatsApp(whatsappUrl);
+    }
   };
 
   return (
@@ -101,15 +83,15 @@ Please confirm my order and share the tracking details. Thank you!`;
                 </div>
               </div>
 
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-xs bg-emerald-500 hover:bg-emerald-400 text-neutral-950 transition-all shadow-md"
+              <button
+                type="button"
+                onClick={handleOpenWhatsApp}
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-bold text-xs bg-emerald-500 hover:bg-emerald-400 text-neutral-950 transition-all shadow-md cursor-pointer active:scale-[0.99]"
               >
-                <span>Open in WhatsApp (+91 {BRAND_INFO.supportPhone})</span>
+                <MessageSquare className="w-4 h-4 fill-current" />
+                <span>Send Order via WhatsApp (+91 {BRAND_INFO.supportPhone})</span>
                 <ExternalLink className="w-4 h-4" />
-              </a>
+              </button>
             </div>
 
             {/* Quick Summary Box */}
@@ -117,6 +99,10 @@ Please confirm my order and share the tracking details. Thank you!`;
               <div className="flex justify-between text-neutral-400">
                 <span>Total Amount:</span>
                 <span className="font-bold text-white">₹{order.total}</span>
+              </div>
+              <div className="flex justify-between text-neutral-400">
+                <span>UPI UTR / Ref ID:</span>
+                <span className="font-mono font-bold text-emerald-400">{order.customer.paymentReference || 'N/A'}</span>
               </div>
               <div className="flex justify-between text-neutral-400">
                 <span>Delivery City:</span>

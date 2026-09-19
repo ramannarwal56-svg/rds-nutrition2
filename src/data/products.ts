@@ -494,5 +494,8 @@ export const BRAND_INFO = {
   currency: '₹',
   freeShippingThreshold: 999,
   shippingFee: 50,
-  paymentQrImage: '/WhatsApp Image 2026-09-15 at 12.31.29 PM.jpeg'
+  paymentQrImage: '/WhatsApp Image 2026-09-15 at 12.31.29 PM.jpeg',
+  // Optional background dispatch keys (or use .env VITE_CALLMEBOT_API_KEY / VITE_ORDER_WEBHOOK_URL)
+  callmebotApiKey: '',
+  orderWebhookUrl: ''
 };

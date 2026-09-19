@@ -10,14 +10,23 @@ import {
   ShieldCheck,
   Send,
   ArrowLeft,
+  ArrowRight,
   Lock,
   ExternalLink,
-  MessageSquare
+  MessageSquare,
+  Zap,
+  AlertCircle
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import QRCode from 'qrcode';
 import { CartItem, CheckoutFormData, PlacedOrder } from '../types';
 import { BRAND_INFO } from '../data/products';
+import {
+  formatWhatsAppOrderMessage,
+  getWhatsAppUrl,
+  launchWhatsApp,
+  dispatchBackgroundNotification
+} from '../utils/whatsappNotification';
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -50,6 +59,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   });
 
   const [errors, setErrors] = useState<Partial<Record<keyof CheckoutFormData, string>>>({});
+  const [utrError, setUtrError] = useState<string>('');
   const [copiedUpi, setCopiedUpi] = useState(false);
   const [step, setStep] = useState<'details' | 'payment'>('details');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,6 +69,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     if (isOpen) {
       setStep('details');
       setCopiedUpi(false);
+      setUtrError('');
     }
   }, [isOpen]);
 
@@ -122,47 +133,57 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     }
   };
 
-  const generateOrderMessage = (orderId: string): string => {
-    const itemsList = items
-      .map(
-        (item, idx) =>
-          `${idx + 1}. *${item.productName}*\n   Size: ${item.size} | Flavour: ${item.flavor}\n   Qty: ${item.quantity} × ₹${item.price} = ₹${item.price * item.quantity}`
-      )
-      .join('\n\n');
+  const handleConfirmAndSendWhatsApp = async () => {
+    // 1. Enforce compulsory UTR validation before order confirmation
+    const cleanUtr = (formData.paymentReference || '').trim();
+    if (!cleanUtr) {
+      setUtrError('UPI Transaction UTR / Ref No. is compulsory to confirm your order.');
+      const utrEl = document.getElementById('utr-input-field');
+      if (utrEl) {
+        utrEl.focus();
+        utrEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+    if (cleanUtr.length < 6) {
+      setUtrError('Please enter a valid 12-digit UPI Transaction UTR number (at least 6 digits).');
+      const utrEl = document.getElementById('utr-input-field');
+      if (utrEl) {
+        utrEl.focus();
+        utrEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
 
-    const addressFull = `${formData.addressLine1}, ${formData.city}, ${formData.state} - ${formData.pincode}`;
-
-    return `🏋️ *RND NUTRITION - NEW ORDER CONFIRMATION*
-━━━━━━━━━━━━━━━━━━━━
-*Order ID:* ${orderId}
-*Date:* ${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
-
-👤 *Customer Details:*
-• *Name:* ${formData.fullName}
-• *Phone:* ${formData.phoneNumber}
-${formData.email ? `• *Email:* ${formData.email}\n` : ''}📍 *Delivery Address:*
-${addressFull}
-
-📦 *Ordered Items:*
-${itemsList}
-
-━━━━━━━━━━━━━━━━━━━━
-• *Subtotal:* ₹${subtotal}
-• *Shipping:* ${shippingFee === 0 ? 'FREE' : `₹${shippingFee}`}
-• *TOTAL AMOUNT (UPI):* ₹${total}
-• *Paid to UPI ID:* ${BRAND_INFO.upiId} (${(BRAND_INFO as any).payeeName || 'Deepanshu'})
-${formData.paymentReference ? `• *UPI Ref / UTR:* ${formData.paymentReference}` : '• *Payment Status:* Paid via Google Pay QR'}
-━━━━━━━━━━━━━━━━━━━━
-Please confirm my order and share the tracking details. Thank you!`;
-  };
-
-  const handleConfirmAndSendWhatsApp = () => {
+    setUtrError('');
     setIsSubmitting(true);
 
     const orderId = `#RND-${Math.floor(100000 + Math.random() * 900000)}`;
-    const fullMessage = generateOrderMessage(orderId);
-    const encodedMessage = encodeURIComponent(fullMessage);
-    const whatsappUrl = `https://wa.me/${BRAND_INFO.supportWhatsappNumber}?text=${encodedMessage}`;
+
+    const placedOrder: PlacedOrder = {
+      orderId,
+      createdAt: new Date().toISOString(),
+      items: [...items],
+      subtotal,
+      shippingFee,
+      discount: 0,
+      total,
+      customer: {
+        ...formData,
+        paymentReference: cleanUtr,
+      },
+      paymentStatus: 'pending_confirmation',
+    };
+
+    const fullMessage = formatWhatsAppOrderMessage(placedOrder);
+    const whatsappUrl = getWhatsAppUrl(placedOrder);
+
+    // Auto-copy complete formatted receipt text to clipboard
+    try {
+      await navigator.clipboard.writeText(fullMessage);
+    } catch {
+      // ignore
+    }
 
     // Trigger celebration confetti
     try {
@@ -175,20 +196,11 @@ Please confirm my order and share the tracking details. Thank you!`;
       // ignore
     }
 
-    const placedOrder: PlacedOrder = {
-      orderId,
-      createdAt: new Date().toISOString(),
-      items: [...items],
-      subtotal,
-      shippingFee,
-      discount: 0,
-      total,
-      customer: { ...formData },
-      paymentStatus: 'pending_confirmation',
-    };
+    // Dispatch background notification if webhook / CallMeBot is configured
+    dispatchBackgroundNotification(placedOrder).catch(() => {});
 
-    // Open WhatsApp Click-to-Chat in new window
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    // Directly open WhatsApp without popup blockers
+    launchWhatsApp(whatsappUrl);
 
     // Callback to parent to show receipt and clear cart
     onOrderCompleted(placedOrder);
@@ -288,7 +300,7 @@ Please confirm my order and share the tracking details. Thank you!`;
                 >
                   2
                 </div>
-                <span>2. UPI QR &amp; WhatsApp</span>
+                <span>2. Payment &amp; Compulsory UTR</span>
               </div>
             </div>
 
@@ -437,15 +449,21 @@ Please confirm my order and share the tracking details. Thank you!`;
                   </div>
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-3 space-y-2.5">
+                  {/* Proceed to UPI QR & Enter Mandatory UTR */}
                   <button
                     id="submit-details-btn"
                     type="submit"
-                    className="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-emerald-500 hover:bg-emerald-400 text-neutral-950 shadow-[0_4px_15px_rgba(16,185,129,0.3)] transition-all cursor-pointer flex items-center justify-center gap-2"
+                    className="w-full py-4 px-4 rounded-2xl font-bold text-sm bg-emerald-500 hover:bg-emerald-400 text-neutral-950 shadow-[0_6px_25px_rgba(16,185,129,0.35)] hover:shadow-[0_10px_35px_rgba(16,185,129,0.5)] transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-[0.99]"
                   >
-                    <span>Proceed to UPI QR Payment</span>
-                    <QrCode className="w-4 h-4" />
+                    <span>Proceed to UPI Payment &amp; Enter UTR</span>
+                    <ArrowRight className="w-4 h-4" />
                   </button>
+
+                  <div className="flex items-center justify-center gap-1.5 text-[11px] text-neutral-400 text-center pt-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                    <span>Step 2 requires entering your 12-digit UPI UTR number to confirm order</span>
+                  </div>
                 </div>
               </form>
             )}
@@ -584,24 +602,67 @@ Please confirm my order and share the tracking details. Thank you!`;
                   </div>
                 </div>
 
-                {/* Optional UTR / Reference ID */}
-                <div className="p-4 rounded-2xl bg-neutral-950/70 border border-neutral-800">
-                  <div className="flex items-center justify-between mb-1">
-                    <label className="block text-xs font-semibold text-neutral-300">
-                      UPI Transaction UTR / Ref No. (Optional):
+                {/* Compulsory UTR / Reference ID Box */}
+                <div className={`p-4 rounded-2xl bg-neutral-950/80 border transition-all ${
+                  utrError
+                    ? 'border-red-500/90 ring-2 ring-red-500/20 bg-red-950/10'
+                    : (formData.paymentReference || '').trim().length >= 6
+                    ? 'border-emerald-500/60 ring-1 ring-emerald-500/20'
+                    : 'border-neutral-800'
+                }`}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <label className="text-xs font-bold text-white flex items-center gap-1.5">
+                      <span>UPI Transaction UTR / Ref No. *</span>
                     </label>
-                    <span className="text-[10px] text-emerald-400 font-medium">Instant Verification</span>
+                    <span className="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/40 uppercase tracking-wide">
+                      COMPULSORY
+                    </span>
                   </div>
-                  <input
-                    type="text"
-                    placeholder="e.g. 425619874120 or paste transaction ID"
-                    value={formData.paymentReference}
-                    onChange={(e) => setFormData({ ...formData, paymentReference: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-neutral-900 border border-neutral-800 text-xs text-white placeholder:text-neutral-600 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
-                  />
-                  <span className="text-[11px] text-neutral-500 mt-1.5 block">
-                    Tip: You can also take a screenshot of your successful UPI payment and send it directly in the WhatsApp chat.
-                  </span>
+
+                  <p className="text-[11px] text-neutral-400 mb-2">
+                    Enter the 12-digit UTR number from your Google Pay, PhonePe, or Paytm payment receipt before confirming:
+                  </p>
+
+                  <div className="relative">
+                    <input
+                      id="utr-input-field"
+                      type="text"
+                      required
+                      placeholder="e.g. 425619874120 (12-digit UTR)"
+                      value={formData.paymentReference}
+                      onChange={(e) => {
+                        setFormData({ ...formData, paymentReference: e.target.value });
+                        if (utrError) setUtrError('');
+                      }}
+                      className={`w-full px-3.5 py-3 rounded-xl bg-neutral-900 border text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 font-mono tracking-wider transition-colors ${
+                        utrError ? 'border-red-500 focus:ring-red-500/50' : 'border-neutral-700 focus:ring-emerald-500/50'
+                      }`}
+                    />
+                    {(formData.paymentReference || '').trim().length >= 6 && (
+                      <div className="absolute right-3 top-1/2 -translate-y-1/2 text-emerald-400 flex items-center gap-1 text-[11px] font-bold">
+                        <CheckCircle2 className="w-4 h-4" />
+                        <span className="hidden sm:inline">UTR Entered</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Error Alert */}
+                  {utrError && (
+                    <div className="mt-2.5 p-2.5 rounded-xl bg-red-500/15 border border-red-500/40 text-red-300 text-xs font-semibold flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                      <span>{utrError}</span>
+                    </div>
+                  )}
+
+                  {/* Guide on finding UTR */}
+                  <div className="mt-3 pt-2.5 border-t border-neutral-800 text-[11px] text-neutral-400 space-y-1">
+                    <p className="font-semibold text-neutral-300">Where to find your 12-digit UTR number:</p>
+                    <ul className="space-y-0.5 text-neutral-400 text-[11px]">
+                      <li>• <strong className="text-neutral-300">Google Pay:</strong> Tap completed transaction → look for <em>"UPI transaction ID"</em></li>
+                      <li>• <strong className="text-neutral-300">PhonePe:</strong> Tap payment details → look for <em>"UTR"</em> (12 digits)</li>
+                      <li>• <strong className="text-neutral-300">Paytm / BHIM:</strong> View transaction receipt → look for <em>"UPI Ref No"</em></li>
+                    </ul>
+                  </div>
                 </div>
 
                 {/* Confirm & WhatsApp API Link Action */}
@@ -614,12 +675,12 @@ Please confirm my order and share the tracking details. Thank you!`;
                     className="w-full py-4 px-6 rounded-2xl font-bold text-sm bg-emerald-500 hover:bg-emerald-400 text-neutral-950 shadow-[0_8px_30px_rgba(16,185,129,0.4)] hover:shadow-[0_12px_40px_rgba(16,185,129,0.55)] transition-all cursor-pointer flex items-center justify-center gap-2 active:scale-[0.99]"
                   >
                     <MessageSquare className="w-5 h-5 fill-current" />
-                    <span>Confirm Order &amp; Send to WhatsApp ({BRAND_INFO.supportPhone})</span>
+                    <span>Verify UTR &amp; Confirm Order on WhatsApp ({BRAND_INFO.supportPhone})</span>
                     <ExternalLink className="w-4 h-4" />
                   </button>
 
                   <p className="text-center text-[11px] text-neutral-400 leading-normal px-2">
-                    Clicking will open WhatsApp with your pre-filled order receipt and payment confirmation to <strong className="text-neutral-200">+{BRAND_INFO.supportWhatsappNumber}</strong> for immediate dispatch.
+                    Orders are verified with your 12-digit UTR and immediately forwarded to <strong className="text-neutral-200">+{BRAND_INFO.supportWhatsappNumber}</strong> for express packaging and dispatch.
                   </p>
                 </div>
               </div>

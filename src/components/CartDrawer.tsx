@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Trash2, ShoppingBag, ArrowRight, ShieldCheck, Truck } from 'lucide-react';
+import { X, Trash2, ShoppingBag, ArrowRight, ShieldCheck, Truck, MessageSquare } from 'lucide-react';
 import { CartItem } from '../types';
 import { BRAND_INFO } from '../data/products';
 import { assetUrl } from '../utils/assetUrl';
@@ -218,7 +218,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     onClick={onCheckout}
                     className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl font-bold text-sm bg-emerald-500 hover:bg-emerald-400 text-neutral-950 shadow-[0_5px_20px_rgba(16,185,129,0.35)] transition-all cursor-pointer"
                   >
-                    <span>Proceed to UPI Checkout</span>
+                    <MessageSquare className="w-4 h-4 fill-current" />
+                    <span>Proceed to Order (Send to WhatsApp)</span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
 
